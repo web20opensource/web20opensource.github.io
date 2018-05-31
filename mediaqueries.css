@@ -49,6 +49,10 @@
     #hamburguer{
     	display: block;
     }
+
+    .teamName{
+    	display: none;
+    }
 }
 
 @media screen and (min-width: 401px) and (max-width: 699px ) {
@@ -57,6 +61,15 @@
 		-webkit-transform: translate(0, 0);
   		transform: translate(0, 0);
     }
+
+    .flag{
+		width: 36px;
+		height: 36px;
+	}
+	
+	.scores__table td{
+		height: 50px;
+	}
 }
 
 @media screen and (min-width: 700px) and (max-width: 1200px ) {
@@ -76,6 +89,15 @@
   	body{
   		max-width: 700px;
   	}
+
+  	.flag{
+		width: 72px;
+		height: 72px;
+	}
+	
+	.scores__table td{
+		height: 100px;
+	}
 }
 
 @media screen and (min-width: 1200px) {
