@@ -282,6 +282,10 @@ main {
   text-align: center;
 }
 
+.scores__table td:nth-child(3){
+	text-align: right;
+}
+
 
 
 
