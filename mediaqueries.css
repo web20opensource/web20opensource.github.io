@@ -62,11 +62,13 @@
   		transform: translate(0, 0);
     }
 
+
     .flag{
 		width: 36px;
 		height: 36px;
 	}
 	
+
 	.scores__table td{
 		height: 50px;
 	}
