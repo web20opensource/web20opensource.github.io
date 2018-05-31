@@ -53,6 +53,10 @@
     .teamName{
     	display: none;
     }
+
+    .scores__table {
+		font-size: 1.5em;
+	}
 }
 
 @media screen and (min-width: 401px) and (max-width: 699px ) {
@@ -71,6 +75,10 @@
 
 	.scores__table td{
 		height: 50px;
+	}
+
+	.scores__table {
+		font-size: 1.2em;
 	}
 }
 
@@ -99,6 +107,10 @@
 	
 	.scores__table td{
 		height: 100px;
+	}
+
+	.scores__table {
+		font-size: 1.7em;
 	}
 }
 
@@ -142,4 +154,13 @@
   	body{
   		max-width: 1200px;
   	}
+
+  	.scores__table {
+		font-size: 1.5em;
+	}
+
+	.flag{
+		width: 50px;
+		height: 50px;
+	}
 }
