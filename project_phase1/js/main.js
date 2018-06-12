@@ -162,7 +162,7 @@ function handleKeys(e) {
   // Check for TAB key press
   const allLis = [...e.target.parentElement.childNodes];
   if (!allLis.length) return;
-  const actualLiIndex;
+  const actualLiIndex = 0;
   for (const i=0; i< allLis.length ; i++){
    if (allLis[i]== e.target){
      actualLiIndex = i;
