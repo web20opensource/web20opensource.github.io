@@ -100,6 +100,12 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 a.skip-link{
 	color: black !important;
 	text-decoration: underline;
+	position: absolute;
+	top: -10000px;
+}
+
+a.skip-link:focus{
+	top:0;
 }
 
 nav {
