@@ -161,6 +161,8 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   }
   headings[0].focus();
   container.appendChild(ul);
+  debugger;
+  document.querySelectorAll(".inside #map").css.display="block";
 }
 
 /**
