@@ -181,13 +181,15 @@ function handleKeys(e) {
       if (e.target === firstLi) return;
       allLis[actualLiIndex-1].setAttribute("aria-selected","true");
       allLis[actualLiIndex-1].tabIndex = 0;
-      allLis[actualLiIndex-1].focus().click();
+      allLis[actualLiIndex-1].focus();
+      allLis[actualLiIndex-1].click();
     // TAB
     } else {
       if (document.activeElement === lastLi) return;
       allLis[actualLiIndex+1].setAttribute("aria-selected","true");
       allLis[actualLiIndex+1].tabIndex = 0;
-      allLis[actualLiIndex+1].focus().click();
+      allLis[actualLiIndex+1].focus();
+      allLis[actualLiIndex+1].click();
     }
   }
 
