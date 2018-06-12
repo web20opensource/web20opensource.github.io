@@ -157,7 +157,7 @@ resetRestaurants = (restaurants) => {
 }
 
 
-/*handle the keyboard events */
+/*TODO: handle the tab event */
 function handleKeys(e) {
   // Check for TAB key press
   const allLis = [...e.target.parentElement.childNodes];
@@ -191,11 +191,6 @@ function handleKeys(e) {
       allLis[actualLiIndex+1].focus();
       allLis[actualLiIndex+1].click();
     }
-  }
-
-  // ESCAPE
-  if (e.keyCode === 27) {
-    closeModal();
   }
 }
 
