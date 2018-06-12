@@ -129,6 +129,8 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
+  title.tabIndex = 0;
+  title.focus();
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 

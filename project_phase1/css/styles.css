@@ -137,7 +137,6 @@ nav h1 a {
     background-color: #eee;
     font-size: 17px;
     margin: 0;
-    width: calc(50% - 80px);
 }
 
 
@@ -303,18 +302,13 @@ nav h1 a {
 
 /* ====================== Restaurant Details ====================== */
 .inside header {
-  position: fixed;
-  top: 0;
   width: 100%;
-  z-index: 1000;
 }
 
 
 .inside #map-container {
   background: blue none repeat scroll 0 0;
-  height: 87%;
-  position: fixed;
-  right: 0;
+  height: 0;
   top: 80px;
   width: 50%;
 }
@@ -328,9 +322,9 @@ nav h1 a {
 
 
 .inside #footer {
-  bottom: 0;
-  position: absolute;
-  width: 50%;
+  margin-top: 1em;
+  position: relative;
+  width: 100%;
 }
 
 
@@ -374,7 +368,7 @@ nav h1 a {
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 140px 40px 30px;
+  padding: 15px 15px;
   width: 50%;
 }
 
@@ -401,7 +395,7 @@ nav h1 a {
 
 #reviews-list li {
   background-color: #fff;
-    border: 2px solid #f3f3f3;
+  border: 2px solid #f3f3f3;
   display: block;
   list-style-type: none;
   margin: 0 0 30px;
@@ -417,8 +411,14 @@ nav h1 a {
 }
 
 
-#restaurant-hours td {
-  color: #666;
+#restaurant-hours td:first-child {
+  color: #000;
+  width: 30%;
+}
+
+#restaurant-hours td:nth-child(2){
+  color: #000;
+  width: 70%;
 }
 
 
