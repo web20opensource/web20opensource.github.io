@@ -126,6 +126,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 /**
  * Create all reviews HTML and add them to the webpage.
  */
+ //TODO: Improve wai-aria navigation
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
@@ -144,6 +145,11 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   reviews.forEach(review => {
     ul.appendChild(createReviewHTML(review));
   });
+  for (var i = 0, headings = document.querySelectorAll('h1,h2,h3,h4,h5,h6'); i < headings.length; i++) {
+   //console.log(headings[i].textContent.trim() + " " +  headings[i].tagName, headings[i]);
+   headings[i].tabIndex = 0;
+  }
+  headings[0].focus();
   container.appendChild(ul);
 }
 
