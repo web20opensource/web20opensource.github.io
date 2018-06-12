@@ -438,12 +438,12 @@ nav h1 a {
 
 #footer {
   display: flex;
-  align-items: center;
+  align-items: space-between;
   justify-content: center;
   width: 100%;
   background-color: #fff;
   color: #000;
-  font-size: 0.2em;
+  font-size: 0.1em;
   padding: 25px;
   text-align: center;
   text-transform: uppercase;
