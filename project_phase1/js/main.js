@@ -159,30 +159,29 @@ resetRestaurants = (restaurants) => {
 
 /*handle the keyboard events */
 function trapTabKey(e) {
-    // Check for TAB key press
-    if (e.keyCode === 9) {
+  // Check for TAB key press
+  if (e.keyCode === 9) {
 
-      debugger;
-      // SHIFT + TAB
-      if (e.shiftKey) {
-        if (document.activeElement === firstTabStop) {
-          e.preventDefault();
-          lastTabStop.focus();
-        }
+    debugger;
+    // SHIFT + TAB
+    if (e.shiftKey) {
+      if (document.activeElement === firstTabStop) {
+        e.preventDefault();
+        lastTabStop.focus();
+      }
 
-      // TAB
-      } else {
-        if (document.activeElement === lastTabStop) {
-          e.preventDefault();
-          firstTabStop.focus();
-        }
+    // TAB
+    } else {
+      if (document.activeElement === lastTabStop) {
+        e.preventDefault();
+        firstTabStop.focus();
       }
     }
+  }
 
-    // ESCAPE
-    if (e.keyCode === 27) {
-      closeModal();
-    }
+  // ESCAPE
+  if (e.keyCode === 27) {
+    closeModal();
   }
 }
 
