@@ -39,7 +39,7 @@ body,td,th,p{
   font-size: 10pt;
   color: #333;
   line-height: 1.5;
-  max-width: 1200px;
+  max-width: 960px;
   width: 100%;
   margin: 0 auto;
   padding: 0;
@@ -47,7 +47,7 @@ body,td,th,p{
 
 img{
   width: 100%;
-  max-width: 1200px;
+  max-width: 960px;
 }
 
 body {
