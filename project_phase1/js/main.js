@@ -229,8 +229,8 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
 
   if (indexRestaurant == 1){
    li.setAttribute("aria-selected", true);
-   li.setAttribute("aria-activedescendant");
    li.tabIndex = 0;
+   li.focus();
   }else{
    li.setAttribute("aria-selected", false);
    li.tabIndex = -1;
