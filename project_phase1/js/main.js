@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
   fetchNeighborhoods();
   fetchCuisines();
   //TODO: want to make header navigable.
-  for (var i = 0, headings = document.querySelectorAll('h1,h2,h3,h4,h5,h6'); i < headings.length; i++) {
+  /*for (var i = 0, headings = document.querySelectorAll('h1,h2,h3,h4,h5,h6'); i < headings.length; i++) {
    console.log(headings[i].textContent.trim() + " " +  headings[i].tagName, headings[i]);
    headings[i].tabIndex = "-1";
-  }
+  }*/
   headings[0].focus();
   headings[0].tabIndex=0;
 
@@ -147,7 +147,6 @@ resetRestaurants = (restaurants) => {
   const ul = document.getElementById('restaurants-list');
   ul.innerHTML = '';
 
-  debugger;
   // Remove all map markers
   self.markers.forEach(m => self.newMap.removeLayer(m));
   self.markers = [];
@@ -178,7 +177,6 @@ createRestaurantHTML = (restaurant) => {
 
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
-  name.tabIndex = 0;
   li.append(name);
 
   const neighborhood = document.createElement('p');
@@ -201,7 +199,6 @@ createRestaurantHTML = (restaurant) => {
  * Add markers for current restaurants to the map.
  */
 addMarkersToMap = (restaurants = self.restaurants) => {
-  debugger;
   restaurants.forEach(restaurant => {
     // Add marker to the map
     const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.newMap);
