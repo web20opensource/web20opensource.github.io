@@ -133,7 +133,6 @@ updateRestaurants = () => {
       console.error(error);
     } else {
       resetRestaurants(restaurants);
-      debugger;
       fillRestaurantsHTML();
     }
   })
