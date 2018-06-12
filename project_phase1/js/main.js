@@ -178,13 +178,13 @@ function handleKeys(e) {
     debugger;
     // SHIFT + TAB
     if (e.shiftKey) {
-      if (document.activeElement === firstLi) return;
+      if (e.target === firstLi) return;
       allLis[actualLiIndex-1].setAttribute("aria-selected","true");
       allLis[actualLiIndex-1].tabIndex = 0;
       allLis[actualLiIndex-1].focus();
     // TAB
     } else {
-      if (document.activeElement === lastLi) return;
+      if (e.target === lastLi) return;
       allLis[actualLiIndex+1].setAttribute("aria-selected","true");
       allLis[actualLiIndex+1].tabIndex = 0;
       allLis[actualLiIndex+1].focus();
