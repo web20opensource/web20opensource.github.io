@@ -260,7 +260,7 @@ nav h1 a {
   display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
   flex-flow: column;
   align-items: center;
-  text-align: center;
+  text-align: center !important;
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial,sans-serif;
