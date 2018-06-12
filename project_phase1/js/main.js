@@ -176,7 +176,7 @@ function handleKeys(e) {
   if (e.keyCode === 9) {
     allLis[actualLiIndex].setAttribute("aria-selected","false");
     allLis[actualLiIndex].tabIndex = -1;
-    debugger;
+    //debugger;
     // SHIFT + TAB
     if (e.shiftKey) {
       if (e.target === firstLi) return;
