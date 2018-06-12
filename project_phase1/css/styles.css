@@ -348,8 +348,8 @@ nav h1 a {
 
 
 .inside #footer {
-  margin-top: 1em;
-  position: relative;
+  bottom: 0;
+  position: absolute;
   width: 100%;
 }
 
@@ -459,7 +459,7 @@ nav h1 a {
   width: 100%;
   background-color: #fff;
   color: #000;
-  font-size: 0.1em;
+  font-size: 0.6em;
   padding: 25px;
   text-align: center;
   text-transform: uppercase;
