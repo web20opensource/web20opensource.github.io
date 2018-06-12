@@ -5,7 +5,7 @@ var newMap;
  * Initialize map as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {  
-  
+  initMap();
 });
 
 /**
@@ -144,7 +144,6 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 
-
   if (!reviews) {
     const noReviews = document.createElement('p');
     noReviews.innerHTML = 'No reviews yet!';
@@ -162,8 +161,6 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   }
   headings[0].focus();
   container.appendChild(ul);
-
-  initMap();
 }
 
 /**
