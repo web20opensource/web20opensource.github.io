@@ -6,8 +6,8 @@ self.addEventListener("install", function(event) {
         "/project_phase1/index.html",
         "/project_phase1/css/styles.css",
         "/project_phase1/css/mqueries.css",
-        "https://normalize-css.googlecode.com/svn/trunk/normalize.css"
-		      "/project_phase1/img/1.jpg",
+        "https://normalize-css.googlecode.com/svn/trunk/normalize.css",
+        "/project_phase1/img/1.jpg",
         "/project_phase1/img/2.jpg",
         "/project_phase1/img/3.jpg",
         "/project_phase1/img/4.jpg",
