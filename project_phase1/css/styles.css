@@ -97,6 +97,11 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 
 /* ====================== Navigation ====================== */
 
+a.skip-link{
+	color: black !important;
+	text-decoration: underline;
+}
+
 nav {
   width: 100%;
   height: 80px;
