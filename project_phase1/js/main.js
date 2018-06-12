@@ -192,7 +192,7 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
   const ul = document.getElementById('restaurants-list');
   let indexRestaurant = 1;
   restaurants.forEach(restaurant => {
-    ul.append(createRestaurantHTML(restaurant));
+    ul.append(createRestaurantHTML(restaurant, indexRestaurant++));
   });
   ul.addEventListener('keydown', handleKeys);
   ul.addEventListener('input', handleKeys);
@@ -202,7 +202,7 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 /**
  * Create restaurant HTML.
  */
-createRestaurantHTML = (restaurant) => {
+createRestaurantHTML = (restaurant, indexRestaurant) => {
   const li = document.createElement('li');
 
   const image = document.createElement('img');
