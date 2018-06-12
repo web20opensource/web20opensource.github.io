@@ -16,9 +16,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
    console.log(headings[i].textContent.trim() + " " +  headings[i].tagName, headings[i]);
    headings[i].tabIndex = "-1";
   }
-  headings[0].focus();
-  headings[0].tabIndex=0;
-
+  
   if('serviceWorker' in navigator) {
   navigator.serviceWorker
            .register('/project_phase1/js/sw.js')

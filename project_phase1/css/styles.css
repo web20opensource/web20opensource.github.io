@@ -205,6 +205,11 @@ nav h1 a {
   width: 50%;
 }
 
+.filter-options select:focus{
+	outline:  0;
+	box-shadow: 0px 0px 10px 5px black;
+}
+
 
 
 /* ====================== Restaurant Listing ====================== */
