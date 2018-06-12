@@ -156,14 +156,47 @@ resetRestaurants = (restaurants) => {
   self.restaurants = restaurants;
 }
 
+
+/*handle the keyboard events */
+function trapTabKey(e) {
+    // Check for TAB key press
+    if (e.keyCode === 9) {
+
+      debugger;
+      // SHIFT + TAB
+      if (e.shiftKey) {
+        if (document.activeElement === firstTabStop) {
+          e.preventDefault();
+          lastTabStop.focus();
+        }
+
+      // TAB
+      } else {
+        if (document.activeElement === lastTabStop) {
+          e.preventDefault();
+          firstTabStop.focus();
+        }
+      }
+    }
+
+    // ESCAPE
+    if (e.keyCode === 27) {
+      closeModal();
+    }
+  }
+}
+
 /**
  * Create all restaurants HTML and add them to the webpage.
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
   const ul = document.getElementById('restaurants-list');
+  let indexRestaurant = 1;
   restaurants.forEach(restaurant => {
     ul.append(createRestaurantHTML(restaurant));
   });
+  ul.addEventListener('keydown', handleKeys);
+  ul.addEventListener('input', handleKeys);
   addMarkersToMap(restaurants);
 }
 
@@ -194,6 +227,18 @@ createRestaurantHTML = (restaurant) => {
   more.innerHTML = restaurant.name + " details";
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
+
+  if (indexRestaurant == 1){
+   li.setAttribute("aria-selected", true);
+   li.setAttribute("aria-activedescendant");
+   li.tabIndex = 0;
+  }else{
+   li.setAttribute("aria-selected", false);
+   li.tabIndex = -1;
+  }
+
+  option.setAttribute("aria-setsize",self.restaurants.length);
+  option.setAttribute("aria-posinset",indexRestaurant++);
 
   return li
 }
