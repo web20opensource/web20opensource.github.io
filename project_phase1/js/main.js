@@ -1,3 +1,4 @@
+/*TODO: use a module pattern to avoid global scope poluttion and anti-patterns*/
 let restaurants,
   neighborhoods,
   cuisines
@@ -220,6 +221,7 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
 
   figcaption.innerHTML =   restaurant.name;
 
+  /* TODO: add srcset to support different image sizes and resolution device widths*/
   const FIimage = document.createElement('img');
   const image = document.createElement('img');
   image.className = 'restaurant-img';

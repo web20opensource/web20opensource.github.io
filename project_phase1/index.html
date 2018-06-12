@@ -25,6 +25,7 @@
 <body>
   <div class="container">
     <header>
+      <!-- TODO: add a logo -->
       <nav role="navigation">
         <h1><a href="/project_phase1">Restaurant Reviews</a></h1>
       </nav>
@@ -34,6 +35,7 @@
       <section id="search">
         <div class="filter-options">
           <h2>Filter Results</h2>
+          <!-- improve label styles-->
           <label>Neighborhood:</label>
           <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
             <option value="all">All Neighborhoods</option>
@@ -45,6 +47,7 @@
           <a href="#results" class="skip-link"> Go to results ( or map ahead with locations) </a>
         </div>
       </section>
+      <!-- TODO: Improve map accesability and navigation using keyboard-->
       <section id="map-container" role="navigation" aria-labelledby="map">
         <div id="map">Map of restaurants by area</div>
       </section>

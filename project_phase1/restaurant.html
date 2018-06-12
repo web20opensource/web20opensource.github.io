@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<!-- Test more in mobile-->
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width">
@@ -41,7 +41,8 @@
     <section id="restaurant-container">
       <h1 id="restaurant-name"></h1>
       <figure>
-      	<img id="restaurant-img">
+       <!-- TODO: add srcset to support different image sizes and resolution device widths-->
+      	<img id="restaurant-img" srcset="">
        <figcaption id="rest-fig-caption"></figcaption>
       </figure>
       <p id="restaurant-cuisine"></p>
@@ -53,6 +54,7 @@
     <section id="reviews-container">
       <ul id="reviews-list"></ul>
       <!-- Begin map -->
+      <!-- TODO: Improve map accesability and navigation using keyboard-->
       <section id="map-container">
       </section>
       <!-- End map -->

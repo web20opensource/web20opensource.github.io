@@ -1,3 +1,5 @@
+/*TODO: use a module pattern to avoid global scope poluttion and anti-patterns*/
+
 let restaurant;
 var newMap;
 
@@ -88,6 +90,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   address.tabIndex = 0;
 
+  /* TODO: add srcset to support different image sizes and resolution device widths*/
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
   image.src = "/project_phase1" + DBHelper.imageUrlForRestaurant(restaurant);  

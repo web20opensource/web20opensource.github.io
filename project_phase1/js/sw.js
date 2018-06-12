@@ -1,4 +1,11 @@
 self.addEventListener("install", function(event) {
+  /*
+  TODO: 
+   # improve the cache to avoid storing long time old items not used.
+   # do more to the app seems a real native app even when offline or lie fi
+   # be able to update to a new version
+   # respond 200 OK when offline
+  */
   event.waitUntil(
     caches.open("restaurant_reviews_v2").then(function(cache) {
       return cache.addAll([
