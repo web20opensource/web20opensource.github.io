@@ -336,7 +336,7 @@ nav h1 a {
 .inside #map-container {
   background: blue none repeat scroll 0 0;
   height: 0;
-  width: 50%;
+  width: 100%;
 }
 
 
