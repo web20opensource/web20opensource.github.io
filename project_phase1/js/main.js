@@ -184,7 +184,7 @@ function handleKeys(e) {
       allLis[actualLiIndex-1].focus();
     // TAB
     } else {
-      if (e.target === lastLi) return;
+      if (document.activeElement === lastLi) return;
       allLis[actualLiIndex+1].setAttribute("aria-selected","true");
       allLis[actualLiIndex+1].tabIndex = 0;
       allLis[actualLiIndex+1].focus();
