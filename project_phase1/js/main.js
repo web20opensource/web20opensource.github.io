@@ -1,3 +1,4 @@
+/*TODO: Integrate a build process with grunt or gulp*/
 /*TODO: use a module pattern to avoid global scope poluttion and anti-patterns*/
 let restaurants,
   neighborhoods,
