@@ -236,8 +236,8 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
    li.tabIndex = -1;
   }
 
-  option.setAttribute("aria-setsize",self.restaurants.length);
-  option.setAttribute("aria-posinset",indexRestaurant++);
+  li.setAttribute("aria-setsize",self.restaurants.length);
+  li.setAttribute("aria-posinset",indexRestaurant++);
 
   return li
 }
