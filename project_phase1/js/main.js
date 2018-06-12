@@ -227,7 +227,7 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
 
   figure.append(image);
   figure.append(figcaption);
-  
+
   li.append(figure);
 
   const name = document.createElement('h1');
@@ -257,6 +257,7 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
    li.tabIndex = -1;
   }*/
 
+  li.tabIndex = 0;
   li.setAttribute("aria-setsize",self.restaurants.length);
   li.setAttribute("aria-posinset",indexRestaurant++);
 
