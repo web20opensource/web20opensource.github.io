@@ -40,6 +40,8 @@ section{
   display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
   flex-wrap:  nowrap;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .inside section{
