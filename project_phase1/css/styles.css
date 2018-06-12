@@ -102,11 +102,15 @@ a.skip-link{
 	text-decoration: underline;
 	position: absolute;
 	top: -10000px;
+	z-index: -111110;
 }
 
-a.skip-link:focus{
-	top:0;
-	position: relative;
+a.skip-link:focus,
+a.skip-link:active{
+	top:0 !important;
+	position: relative !important;
+    z-index: 0;
+    color: black !important;
 }
 
 nav {
