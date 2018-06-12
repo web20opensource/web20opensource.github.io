@@ -46,10 +46,13 @@ fetchNeighborhoods = () => {
  */
 fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
   const select = document.getElementById('neighborhoods-select');
+  const indexOption = 1;
   neighborhoods.forEach(neighborhood => {
     const option = document.createElement('option');
     option.innerHTML = neighborhood;
     option.value = neighborhood;
+    option.setAttribute("aria-setsize",self.neighborhoods.length);
+    option.setAttribute("aria-posinset",indexOption++);
     select.append(option);
   });
 }
