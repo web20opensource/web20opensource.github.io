@@ -212,6 +212,8 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  * Create restaurant HTML.
  */
 createRestaurantHTML = (restaurant, indexRestaurant) => {
+
+  const li = document.createElement('li');
   const figure = document.createElement('figure');
   const figcaption = document.createElement('figcaption');
 
