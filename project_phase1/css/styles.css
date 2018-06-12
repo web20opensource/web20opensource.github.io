@@ -241,7 +241,7 @@ nav h1 a {
   display: block;
   margin: 0;
   max-width: 100%;
-  min-height: 248px;
+  min-height: 0;
   min-width: 100%;
 }
 
