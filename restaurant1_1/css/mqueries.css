@@ -1,0 +1,6 @@
+@media screen and (max-width: 550px){
+    footer {
+      padding: 5px !important;
+      letter-spacing: 0.2rem !important;
+    }
+}}
