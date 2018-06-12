@@ -241,6 +241,11 @@ nav h1 a {
 }
 
 
+#restaurants-list li:focus{
+	outline: 0;
+	box-shadow: 0px 0px 10px 5px black;	
+}
+
 #restaurants-list .restaurant-img {
   background-color: #ccc;
   display: block;
