@@ -163,7 +163,7 @@ function handleKeys(e) {
   const allLis = [...e.target.parentElement.childNodes];
   if (!allLis.length) return;
   let actualLiIndex = 0;
-  for (const i=0; i< allLis.length ; i++){
+  for (let i=0; i< allLis.length ; i++){
    if (allLis[i]== e.target){
      actualLiIndex = i;
      break;
