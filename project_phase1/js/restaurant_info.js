@@ -119,6 +119,8 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     time.innerHTML = operatingHours[key];
     row.appendChild(time);
 
+    row.tabIndex=0;
+
     hours.appendChild(row);
   }
 }
