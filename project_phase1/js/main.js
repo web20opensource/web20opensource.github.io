@@ -212,12 +212,20 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  * Create restaurant HTML.
  */
 createRestaurantHTML = (restaurant, indexRestaurant) => {
-  const li = document.createElement('li');
+  const figure = document.createElement('figure');
+  const figcaption = document.createElement('figcaption');
 
+  figcaption.innerHTML =   restaurant.name;
+
+  figure.append(figcaption);
+
+  const FIimage = document.createElement('img');
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = "/project_phase1/" + DBHelper.imageUrlForRestaurant(restaurant);
-  li.append(image);
+
+  figure.append(image);
+  li.append(figure);
 
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
@@ -236,14 +244,15 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
-  if (indexRestaurant == 1){
+  /*TODO: fix the accesability navigation */
+  /*if (indexRestaurant == 1){
    li.setAttribute("aria-selected", true);
    li.tabIndex = 0;
    li.focus();
   }else{
    li.setAttribute("aria-selected", false);
    li.tabIndex = -1;
-  }
+  }*/
 
   li.setAttribute("aria-setsize",self.restaurants.length);
   li.setAttribute("aria-posinset",indexRestaurant++);
