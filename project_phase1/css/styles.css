@@ -438,8 +438,8 @@ nav h1 a {
 
 #footer {
   display: flex;
-  align-items: space-between;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   background-color: #fff;
   color: #000;
