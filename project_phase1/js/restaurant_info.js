@@ -90,17 +90,15 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
-  image.src = "/project_phase1" + DBHelper.imageUrlForRestaurant(restaurant);
+  image.src = "/project_phase1" + DBHelper.imageUrlForRestaurant(restaurant);  
 
-  image.tabIndex = 0;
-
-  document.querySelectorAll(".rest-fig-caption").innerHTML = restaurant.name;
+  document.getElementById("rest-fig-caption").innerHTML = restaurant.name;
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
 
   cuisine.tabIndex = 0;
-  
+
   // fill operating hours
   if (restaurant.operating_hours) {
     fillRestaurantHoursHTML();
