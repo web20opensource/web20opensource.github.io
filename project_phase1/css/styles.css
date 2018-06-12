@@ -204,7 +204,8 @@ nav h1 a {
   width: 50%;
 }
 
-.filter-options select:focus{
+.filter-options select:focus,
+.filter-options select:hover{
 	outline:  0;
 	box-shadow: 0px 0px 10px 5px black;
 }
@@ -242,7 +243,11 @@ nav h1 a {
 
 #restaurants-list li[aria-selected="true"]:focus{
 	outline: 0;
-	box-shadow: 0px 0px 10px 5px black;	
+}
+
+#restaurants-list li[aria-selected="true"]:hover,
+#restaurants-list li[aria-selected="true"]:focus::before{
+    box-shadow: 0px 0px 10px 5px black; 
 }
 
 #restaurants-list .restaurant-img {
