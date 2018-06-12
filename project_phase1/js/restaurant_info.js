@@ -135,6 +135,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 
+
   if (!reviews) {
     const noReviews = document.createElement('p');
     noReviews.innerHTML = 'No reviews yet!';
@@ -145,6 +146,9 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   reviews.forEach(review => {
     ul.appendChild(createReviewHTML(review));
   });
+
+  document.querySelectorAll(".rest-fig-caption").innerHTML = self.restaurant.name;
+
   for (var i = 0, headings = document.querySelectorAll('h1,h2,h3,h4,h5,h6'); i < headings.length; i++) {
    //console.log(headings[i].textContent.trim() + " " +  headings[i].tagName, headings[i]);
    headings[i].tabIndex = 0;
