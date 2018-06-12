@@ -158,7 +158,7 @@ resetRestaurants = (restaurants) => {
 
 
 /*handle the keyboard events */
-function trapTabKey(e) {
+function handleKeys(e) {
   // Check for TAB key press
   if (e.keyCode === 9) {
 
