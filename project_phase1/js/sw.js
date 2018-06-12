@@ -4,14 +4,8 @@ self.addEventListener('install', function(event) {
       return cache.addAll([
         '/project_phase1/',
         '/project_phase1/index.html',
-        '/project_phase1/css/style.css',
-        '/project_phase1/js/main.js',
-        '/project_phase1/image-list.js',
-        '/project_phase1/star-wars-logo.jpg',
-        '/project_phase1/gallery/',
-        '/project_phase1/gallery/bountyHunters.jpg',
-        '/project_phase1/gallery/myLittleVader.jpg',
-        '/project_phase1/gallery/snowTroopers.jpg'
+        '/project_phase1/css/styles.css',
+        '/project_phase1/js/main.js'
       ]);
     })
   );
