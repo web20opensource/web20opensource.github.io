@@ -160,22 +160,27 @@ resetRestaurants = (restaurants) => {
 /*handle the keyboard events */
 function handleKeys(e) {
   // Check for TAB key press
+  const allLis = [...e.target.parentElement.childNodes];
+  if (!allLis.length) return;
+  const actualLiIndex = allLis.filter((iteratedLi, i)=>{if (iteratedLi==e.target) return i;})
+  const firstLi = allLis[0];
+  const lastLi = allLis[allLis.length-1];
   if (e.keyCode === 9) {
-
+    allLis[actualLiIndex].setAttribute("aria-selected","false");
+    allLis[actualLiIndex].tabIndex = -1;
     debugger;
     // SHIFT + TAB
     if (e.shiftKey) {
-      if (document.activeElement === firstTabStop) {
-        e.preventDefault();
-        lastTabStop.focus();
-      }
-
+      if (document.activeElement === firstLi) return;
+      allLis[actualLiIndex-1].setAttribute("aria-selected","true");
+      allLis[actualLiIndex-1].tabIndex = 0;
+      allLis[actualLiIndex-1].focus();
     // TAB
     } else {
-      if (document.activeElement === lastTabStop) {
-        e.preventDefault();
-        firstTabStop.focus();
-      }
+      if (document.activeElement === lastLi) return;
+      allLis[actualLiIndex+1].setAttribute("aria-selected","true");
+      allLis[actualLiIndex+1].tabIndex = 0;
+      allLis[actualLiIndex+1].focus();
     }
   }
 
