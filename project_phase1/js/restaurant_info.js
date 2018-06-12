@@ -86,13 +86,21 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
 
+  address.tabIndex = 0;
+
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
   image.src = "/project_phase1" + DBHelper.imageUrlForRestaurant(restaurant);
 
+  image.tabIndex = 0;
+
+  document.querySelectorAll(".rest-fig-caption").innerHTML = restaurant.name;
+
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
 
+  cuisine.tabIndex = 0;
+  
   // fill operating hours
   if (restaurant.operating_hours) {
     fillRestaurantHoursHTML();
@@ -148,8 +156,6 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   reviews.forEach(review => {
     ul.appendChild(createReviewHTML(review));
   });
-
-  document.querySelectorAll(".rest-fig-caption").innerHTML = self.restaurant.name;
 
   for (var i = 0, headings = document.querySelectorAll('h1,h2,h3,h4,h5,h6'); i < headings.length; i++) {
    //console.log(headings[i].textContent.trim() + " " +  headings[i].tagName, headings[i]);
