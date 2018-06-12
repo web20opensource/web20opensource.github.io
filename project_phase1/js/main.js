@@ -15,15 +15,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
   /*for (var i = 0, headings = document.querySelectorAll('h1,h2,h3,h4,h5,h6'); i < headings.length; i++) {
    console.log(headings[i].textContent.trim() + " " +  headings[i].tagName, headings[i]);
    headings[i].tabIndex = "-1";
+   headings[0].focus();
+   headings[0].tabIndex=0;
   }*/
-  headings[0].focus();
-  headings[0].tabIndex=0;
 
   if('serviceWorker' in navigator) {
   navigator.serviceWorker
            .register('/project_phase1/js/sw.js')
            .then(function() { console.log("Service Worker Registered"); });
   }
+
 });
 
 /**
