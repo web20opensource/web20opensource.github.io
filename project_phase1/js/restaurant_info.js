@@ -161,8 +161,11 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   }
   headings[0].focus();
   container.appendChild(ul);
-  const map = document.querySelectorAll(".inside #map")[0];
-  container.appendChild(map);
+  
+  const map = document.querySelectorAll("#map")[0];
+  const mapContainer = document.querySelectorAll("#map-container")[0];
+
+  mapContainer.appendChild(map);
 
 }
 
