@@ -6,6 +6,7 @@ self.addEventListener("install", function(event) {
         "/project_phase1/index.html",
         "/project_phase1/css/styles.css",
         "/project_phase1/css/mqueries.css",
+        "https://normalize-css.googlecode.com/svn/trunk/normalize.css"
 		      "/project_phase1/img/1.jpg",
         "/project_phase1/img/2.jpg",
         "/project_phase1/img/3.jpg",
@@ -61,16 +62,16 @@ self.addEventListener("install", function(event) {
       		"https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon-2x.png",
       		"https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon.png",
       		"https://unpkg.com/leaflet@1.3.1/dist/images/marker-shadow.png",
-      		"/project_phase1/restaurant.html?id=1",
-      		"/project_phase1/restaurant.html?id=2",
-      		"/project_phase1/restaurant.html?id=3",
-      		"/project_phase1/restaurant.html?id=4",
-      		"/project_phase1/restaurant.html?id=5",
-      		"/project_phase1/restaurant.html?id=6",
-      		"/project_phase1/restaurant.html?id=7",
-      		"/project_phase1/restaurant.html?id=8",
-      		"/project_phase1/restaurant.html?id=9",
-      		"/project_phase1/restaurant.html?id=10"
+      		"https://web20opensource.github.io/project_phase1/restaurant.html?id=1",
+      		"https://web20opensource.github.io/project_phase1/restaurant.html?id=2",
+      		"https://web20opensource.github.io/project_phase1/restaurant.html?id=3",
+      		"https://web20opensource.github.io/project_phase1/restaurant.html?id=4",
+      		"https://web20opensource.github.io/project_phase1/restaurant.html?id=5",
+      		"https://web20opensource.github.io/project_phase1/restaurant.html?id=6",
+      		"https://web20opensource.github.io/project_phase1/restaurant.html?id=7",
+      		"https://web20opensource.github.io/project_phase1/restaurant.html?id=8",
+      		"https://web20opensource.github.io/project_phase1/restaurant.html?id=9",
+      		"https://web20opensource.github.io/project_phase1/restaurant.html?id=10"
       ]);
     })
   )
