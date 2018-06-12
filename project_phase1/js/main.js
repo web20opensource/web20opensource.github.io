@@ -16,7 +16,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
    console.log(headings[i].textContent.trim() + " " +  headings[i].tagName, headings[i]);
    headings[i].tabIndex = "-1";
   }
-  
+  headings[0].focus();
+  headings[0].tabIndex=0;
+
   if('serviceWorker' in navigator) {
   navigator.serviceWorker
            .register('/project_phase1/js/sw.js')
@@ -171,7 +173,7 @@ createRestaurantHTML = (restaurant) => {
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.src = "/project_phase1" + DBHelper.imageUrlForRestaurant(restaurant);
+  image.src = "/project_phase1/" + DBHelper.imageUrlForRestaurant(restaurant);
   li.append(image);
 
   const name = document.createElement('h1');
@@ -188,7 +190,7 @@ createRestaurantHTML = (restaurant) => {
   li.append(address);
 
   const more = document.createElement('a');
-  more.innerHTML = 'View Details';
+  more.innerHTML = restaurant.name + " details";
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
