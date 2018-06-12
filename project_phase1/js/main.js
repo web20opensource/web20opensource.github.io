@@ -157,7 +157,7 @@ resetRestaurants = (restaurants) => {
 }
 
 
-/*TODO: handle the tab event */
+/*TODO: handle the tab event and keys correctly */
 function handleKeys(e) {
   // Check for TAB key press
   const allLis = [...e.target.parentElement.childNodes];
@@ -203,8 +203,9 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     ul.append(createRestaurantHTML(restaurant, indexRestaurant++));
   });
-  ul.addEventListener('keydown', handleKeys);
-  ul.addEventListener('input', handleKeys);
+  /*TODO: improve the accesability navigation */
+  //ul.addEventListener('keydown', handleKeys);
+  //ul.addEventListener('input', handleKeys);
   addMarkersToMap(restaurants);
 }
 
@@ -219,14 +220,14 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
 
   figcaption.innerHTML =   restaurant.name;
 
-  figure.append(figcaption);
-
   const FIimage = document.createElement('img');
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = "/project_phase1/" + DBHelper.imageUrlForRestaurant(restaurant);
 
   figure.append(image);
+  figure.append(figcaption);
+  
   li.append(figure);
 
   const name = document.createElement('h1');
@@ -246,7 +247,7 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
-  /*TODO: fix the accesability navigation */
+  /*TODO: improve the accesability navigation */
   /*if (indexRestaurant == 1){
    li.setAttribute("aria-selected", true);
    li.tabIndex = 0;
