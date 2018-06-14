@@ -4,7 +4,6 @@
       letter-spacing: 0.1rem !important;
     }
 
-
 	.inside section{
 		width: 100% !important;
 	}
@@ -17,7 +16,11 @@
       letter-spacing: 0.2rem !important;
     }
 
-	.inside section{
+    #restaurants-list li{
+    	width: 50%;
+    }
+
+    .inside section{
 		width: 90%;
 	}
 }
@@ -29,9 +32,10 @@
       letter-spacing: 0.2rem !important;
     }
 
-	.inside section{
-		width: 90%;
-	}
+    #restaurants-list li{
+    	width:33%;
+    }
+
 }
 
 @media screen and (max-width: 1600px){
@@ -40,8 +44,8 @@
       letter-spacing: 0.2rem !important;
     }
 
-	.inside section{
-		width: 90%;
+	#restaurants-list li{
+		width: 25%;
 	}
 }
 /* TODO: improve user experiece doing more fluid (Layout shifter) the page*/
