@@ -22,4 +22,26 @@
 	}
 }
 
+
+@media screen and (max-width: 1200px){
+    footer {
+      padding: 5px !important;
+      letter-spacing: 0.2rem !important;
+    }
+
+	.inside section{
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 1600px){
+    footer {
+      padding: 5px !important;
+      letter-spacing: 0.2rem !important;
+    }
+
+	.inside section{
+		width: 90%;
+	}
+}
 /* TODO: improve user experiece doing more fluid (Layout shifter) the page*/
