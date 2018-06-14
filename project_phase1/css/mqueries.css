@@ -10,14 +10,14 @@
 }
 
 
-@media screen and (min-width: 960px){
+@media screen and (min-width: 768px){
     footer {
       padding: 5px !important;
       letter-spacing: 0.2rem !important;
     }
 
     #restaurants-list li{
-    	width: 50%;
+    	width: 45%;
     }
 
     .inside section{
