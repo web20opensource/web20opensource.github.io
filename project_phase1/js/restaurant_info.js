@@ -144,7 +144,8 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const title = document.createElement('h3');
   title.tabIndex = 0;
   title.focus();
-  title.innerHTML = 'Reviews';
+  title.innerHTML = "Reviews";
+  title.className = "restaurant-review-header";
   container.appendChild(title);
 
   if (!reviews) {

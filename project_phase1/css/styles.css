@@ -363,7 +363,7 @@ nav h1 a {
 .inside #map {
   background-color: #ccc;
   height: 100%;
-  width: 100%;
+  width: 90%;
 }
 
 
@@ -397,7 +397,7 @@ nav h1 a {
 }
 
 
-#restaurant-cuisine {
+#restaurant-cuisine, .restaurant-review-header  {
   background-color: #333;
   color: #ddd;
   font-size: 1em;
@@ -446,9 +446,11 @@ nav h1 a {
   list-style-type: none;
   margin: 0 0 30px;
   overflow: hidden;
-  padding: 0 20px 20px;
   position: relative;
-  width: 85%;
+  padding: 10px 20px;
+  position: relative;
+  width: 90%;
+  border: solid 1px;
 }
 
 
