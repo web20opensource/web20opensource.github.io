@@ -328,6 +328,10 @@ nav h1 a {
 
 /* ====================== Restaurant Details ====================== */
 
+.inside #mainReviewHeader{
+  text-align: center;
+}
+
 .inside #maincontent{
   display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
   display: -ms-flexbox;  /* TWEENER - IE 10 */
