@@ -55,7 +55,7 @@ body,td,th,p{
 
 img{
   width: 100%;
-  max-width: 1600px;
+  max-width: 800px; /*TODO: update max-width if images are wider*/
 }
 
 body {
