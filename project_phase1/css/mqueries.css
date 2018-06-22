@@ -13,17 +13,25 @@
     }
 
 	.inside section{
-		width: 35% !important;
+		width: 65% !important;
 	}
 }
 
 
-@media screen and (min-width: 768px){
+
+@media screen and (min-width: 300px){
     #restaurants-list li{
-    	width: 45%;
+        width: 45%;
+        padding: 10px 10px;
+    }
+
+    #restaurants-list li a{
+        margin: 5px 0 0;
+        padding: 5px 5px;
     }
 
 }
+
 
 
 @media screen and (min-width: 1200px){
