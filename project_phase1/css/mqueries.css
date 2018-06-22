@@ -1,4 +1,11 @@
 /* TODO: improve user experiece doing more fluid (Layout shifter) the page*/
+
+@media screen and (max-width: 260px){
+    body {
+      width: 130%;
+    }
+}
+
 @media screen and (min-width: 550px){
     footer {
       padding: 5px !important;
@@ -6,7 +13,7 @@
     }
 
 	.inside section{
-		width: 65% !important;
+		width: 35% !important;
 	}
 }
 
