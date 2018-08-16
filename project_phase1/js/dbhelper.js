@@ -142,7 +142,8 @@ class DBHelper {
    * Restaurant page URL.
    */
   static urlForRestaurant(restaurant) {
-    return (`./restaurant.html?id=${restaurant.id}`);
+    //return (`./restaurant.html?id=${restaurant.id}`);
+    return (`http://localhost:1337/restaurants/{${restaurant.id}}`);
   }
 
   /**
