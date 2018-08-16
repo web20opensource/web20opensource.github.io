@@ -93,7 +93,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   /* TODO: add srcset to support different image sizes and resolution device widths*/
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
-  image.src = "/project_phase1" + DBHelper.imageUrlForRestaurant(restaurant);  
+  image.src = `/project_phase1${DBHelper.imageUrlForRestaurant(restaurant)}.jpg`;
   image.setAttribute("alt", "A picture from the restaurant " + restaurant.name);
 
   document.getElementById("rest-fig-caption").innerHTML = "Restaurant: " + restaurant.name;
