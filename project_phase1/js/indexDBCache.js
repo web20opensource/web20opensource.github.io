@@ -1,8 +1,4 @@
 
-var dbPromise = idb.open('cache-responses', 1, function(upgradeDB){
-	let keyValStore = upgradeDB.createObjectStore('keyval');
-	keyValStore.put('restaurant reviews','app');
-});
 
 //read
 dbPromise.then(function(db){

@@ -12,6 +12,12 @@ class DBHelper {
     return `/project_phase1/data/restaurants.json`;
   }
 
+  static dbPromise = idb.open('cache-responses', 1, function(upgradeDB){
+  let keyValStore = upgradeDB.createObjectStore('keyval');
+  keyValStore.put('restaurant reviews','app');
+  });
+
+
   /**
    * Fetch all restaurants.
    */
@@ -21,7 +27,7 @@ class DBHelper {
     xhr.onload = () => {
       if (xhr.status === 200) { // Got a success response from server!
         const restaurants = JSON.parse(xhr.responseText);
-        dbPromise.then(function(db){
+        DBHelper.dbPromise.then(function(db){
           var tx = db.transaction('keyval', 'readwrite');
           var keyValStore = tx.objectStore('keyval');
           debugger;
