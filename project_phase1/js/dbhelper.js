@@ -21,6 +21,17 @@ class DBHelper {
     xhr.onload = () => {
       if (xhr.status === 200) { // Got a success response from server!
         const restaurants = JSON.parse(xhr.responseText);
+        dbPromise.then(function(db){
+          var tx = db.transaction('keyval', 'readwrite');
+          var keyValStore = tx.objectStore('keyval');
+          debugger;
+          for (rest in restaurants){
+            keyValStore.put(rest,rest.id);
+          }
+          return tx.complete;
+        }).then(function(){
+          console.log('added successfully!');
+        });
         callback(null, restaurants);
       } else { // Oops!. Got an error from server.
         const error = (`Request failed. Returned status of ${xhr.status}`);
