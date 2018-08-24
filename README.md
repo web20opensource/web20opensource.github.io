@@ -1,52 +1,26 @@
-# Local Development API Server
-## Usage
-#### Get Restaurants
-```
-curl "http://localhost:1337/restaurants"
-```
-#### Get Restaurants by id
-````
-curl "http://localhost:1337/restaurants/{3}"
-````
+# Project phase 2 MWS nano degree
 
-## Architecture
-Local server
-- Node.js
-- Sails.js
+* author of the updates. mario ruiz , web2.0opensource@gmail.com
+* description. project phase 2 nano degree MWS
+* date. 08/24/2018
+* version. 2.0.0
 
-## Contributors
+## Project Overview: Stage 2, based on _Three Stage Course Material Project - Restaurant Reviews_
 
-- [Brandy Lee Camacho - Technical Project Manager](mailto:brandy.camacho@udacity.com)
-- [David Harris - Web Services Lead](mailto:david.harris@udacity.com)
-- [Omar Albeik - Frontend engineer](mailto:omaralbeik@gmail.com)
+Main page to review the project for phase 2 is: https://web20opensource.github.io/
 
-## Getting Started
+### Specification
 
-### Development local API Server
-_Location of server = /server_
-Server depends on [node.js LTS Version: v6.11.2 ](https://nodejs.org/en/download/), [npm](https://www.npmjs.com/get-npm), and [sails.js](http://sailsjs.com/)
-Please make sure you have these installed before proceeding forward.
+The project code was provided by Udacity and just I have, on top of it, updated the code to cache using IndexDB API and sails local project. 
 
-Great, you are ready to proceed forward; awesome!
+### What do I do from here?
 
-Let's start with running commands in your terminal, known as command line interface (CLI)
+* Just go and review the page, navigate it. Please feel free to use a screen reader if desired and test in different mobile devices as well.
 
-###### Install project dependancies
-```Install project dependancies
-# npm i
-```
-###### Install Sails.js globally
-```Install sails global
-# npm i sails -g
-```
-###### Start the server
-```Start server
-# node server
-```
-### You should now have access to your API server environment
-debug: Environment : development
-debug: Port        : 1337
+## Leaflet.js and Mapbox:
 
+This repository uses [leafletjs](https://leafletjs.com/) with [Mapbox](https://www.mapbox.com/). Mapbox is free to use, and does not require any payment information. 
 
-If you find a bug in the source code or a mistake in the documentation, you can help us by
-submitting an issue to our [Waffle Dashboard](https://waffle.io/udacity/mwnd-issues). Even better you can submit a Pull Request with a fix :)
+### Note about ES6
+
+Most of the code in this project has been written to the ES6 JavaScript specification for compatibility with modern web browsers and future proofing JavaScript code.
