@@ -1,10 +1,14 @@
 /*TODO: Integrate a build process with grunt or gulp*/
 /*TODO: use a module pattern to avoid global scope poluttion and anti-patterns*/
+
 let restaurants,
   neighborhoods,
   cuisines
 var newMap;
-var markers = []
+var markers = [];
+
+
+
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -26,7 +30,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
            .register('/js/sw.js')
            .then(function() { console.log("Service Worker Registered"); });
   }
-
+  
 });
 
 /**

@@ -12,11 +12,6 @@ class DBHelper {
     return `http://localhost:1337/restaurants`;
   }
 
-  /*static dbPromise = idb.open('cache-responses', 1, function(upgradeDB){
-  let keyValStore = upgradeDB.createObjectStore('keyval');
-  keyValStore.put('restaurant reviews','app');
-  });*/
-
 
   /**
    * Fetch all restaurants.
@@ -27,21 +22,37 @@ class DBHelper {
     xhr.onload = () => {
       if (xhr.status === 200) { // Got a success response from server!
         const restaurants = JSON.parse(xhr.responseText);
-        DBHelper.dbPromise.then(function(db){
-          var tx = db.transaction('keyval', 'readwrite');
-          var keyValStore = tx.objectStore('keyval');
-          debugger;
-          for (rest in restaurants){
-            keyValStore.put(rest,rest.id);
-          }
-          return tx.complete;
-        }).then(function(){
-          console.log('added successfully!');
-        });
+
+
+        if (dbPromise){
+          dbPromise.then(function(db){
+            var tx = db.transaction('keyval', 'readwrite');
+            var keyValStore = tx.objectStore('keyval');
+            debugger;
+            for (let rest in restaurants){
+              keyValStore.put(restaurants[rest],rest);
+            }
+            return tx.complete;
+          }).then(function(){
+            console.log('added successfully!');
+          });
+        }
+
         callback(null, restaurants);
-      } else { // Oops!. Got an error from server.
-        const error = (`Request failed. Returned status of ${xhr.status}`);
-        callback(error, null);
+      } else { // Oops!. Got an error from server. 
+        // Get the json object from IndexDB API if available
+        const restaurants = {};
+        dbPromise.then(function(db){
+          var tx = db.transaction('keyval');
+          var keyValStore = tx.objectStore('keyval');
+          return keyValStore.get('hello');
+        }).then(function(db){
+          debugger;
+          console.log('The value of hello is: ', val);
+        });
+        /*const error = (`Request failed. Returned status of ${xhr.status}`);
+        callback(error, null);*/
+
       }
     };
     xhr.send();
@@ -159,14 +170,14 @@ class DBHelper {
    * Restaurant page URL.
    */
   static urlForRestaurant(restaurant) {
-    return (`./restaurant.html?id=${restaurant.id}`);
+    return (`restaurant.html?id=${restaurant.id}`);
   }
 
   /**
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant) {
-    return (`/img/${restaurant.photograph | restaurant.id}`);
+    return (`img/${restaurant.photograph | restaurant.id}`);
   }
 
   /**
