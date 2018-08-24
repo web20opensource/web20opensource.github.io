@@ -60,16 +60,16 @@ self.addEventListener("install", function(event) {
       		"https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon-2x.png",
       		"https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon.png",
       		"https://unpkg.com/leaflet@1.3.1/dist/images/marker-shadow.png",
-      		"restaurant.html?id=1",
-      		"restaurant.html?id=2",
-      		"restaurant.html?id=3",
-      		"restaurant.html?id=4",
-      		"restaurant.html?id=5",
-      		"restaurant.html?id=6",
-      		"restaurant.html?id=7",
-      		"restaurant.html?id=8",
-      		"restaurant.html?id=9",
-      		"restaurant.html?id=10"
+      		"/restaurant.html?id=1",
+      		"/restaurant.html?id=2",
+      		"/restaurant.html?id=3",
+      		"/restaurant.html?id=4",
+      		"/restaurant.html?id=5",
+      		"/restaurant.html?id=6",
+      		"/restaurant.html?id=7",
+      		"/restaurant.html?id=8",
+      		"/restaurant.html?id=9",
+      		"/restaurant.html?id=10"
       ]);
     })
   )
