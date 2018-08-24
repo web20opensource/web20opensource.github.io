@@ -46,7 +46,12 @@ class DBHelper {
 
       }
     };
-    xhr.send();
+    try{
+      xhr.send()
+    }
+    catch(e){
+      console.log('catch', e);
+    }
   }
 
   /**
