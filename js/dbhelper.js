@@ -19,6 +19,7 @@ class DBHelper {
   static fetchRestaurants(callback) {
     let xhr = new XMLHttpRequest();
     xhr.open('GET', "http://localhost:1337/restaurants");
+    debugger;
     xhr.onload = () => {
       if (xhr.status === 200) { // Got a success response from server!
         const restaurants = JSON.parse(xhr.responseText);
@@ -40,18 +41,8 @@ class DBHelper {
 
         callback(null, restaurants);
       } else { // Oops!. Got an error from server. 
-        // Get the json object from IndexDB API if available
-        const restaurants = {};
-        dbPromise.then(function(db){
-          var tx = db.transaction('keyval');
-          var keyValStore = tx.objectStore('keyval');
-          return keyValStore.get('hello');
-        }).then(function(db){
-          debugger;
-          console.log('The value of hello is: ', val);
-        });
-        /*const error = (`Request failed. Returned status of ${xhr.status}`);
-        callback(error, null);*/
+        const error = (`Request failed. Returned status of ${xhr.status}`);
+        callback(error, null);
 
       }
     };
@@ -65,7 +56,18 @@ class DBHelper {
     // fetch all restaurants with proper error handling.
     DBHelper.fetchRestaurants((error, restaurants) => {
       if (error) {
-        callback(error, null);
+        //callback(error, null);
+        // Get the json object from IndexDB API if available
+        const restaurant = {};
+        dbPromise.then(function(db){
+          var tx = db.transaction('keyval');
+          var keyValStore = tx.objectStore('keyval');
+          return keyValStore.get('hello');
+        }).then(function(db){
+          debugger;
+          callback(null, restaurant);
+          console.log('The value of hello is: ', val);
+        });
       } else {
         const restaurant = restaurants.find(r => r.id == id);
         if (restaurant) { // Got the restaurant
