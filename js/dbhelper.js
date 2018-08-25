@@ -17,41 +17,38 @@ class DBHelper {
    * Fetch all restaurants.
    */
   static fetchRestaurants(callback) {
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', "http://localhost:1337/restaurants");
-    debugger;
-    xhr.onload = () => {
-      if (xhr.status === 200) { // Got a success response from server!
-        const restaurants = JSON.parse(xhr.responseText);
-
-
-        if (dbPromise){
-          dbPromise.then(function(db){
-            var tx = db.transaction('keyval', 'readwrite');
-            var keyValStore = tx.objectStore('keyval');
-            debugger;
-            for (let rest in restaurants){
-              keyValStore.put(restaurants[rest],rest);
-            }
-            return tx.complete;
-          }).then(function(){
-            console.log('added successfully!');
-          });
-        }
-
-        callback(null, restaurants);
-      } else { // Oops!. Got an error from server. 
-        const error = (`Request failed. Returned status of ${xhr.status}`);
-        callback(error, null);
-
+    $.ajax({
+      url: "http://localhost:1337/restaurants",
+      beforeSend: function( xhr ) {
+        xhr.overrideMimeType( "text/plain; charset=utf8" );
       }
-    };
-    try{
-      xhr.send()
-    }
-    catch(e){
-      console.log('catch', e);
-    }
+    })
+      .done(function( data ) {
+        if ( console && console.log ) {
+          console.log( "Sample of data:", data.slice( 0, 100 ) );
+          const restaurants = JSON.parse(data);
+          if (dbPromise){
+            dbPromise.then(function(db){
+              var tx = db.transaction('keyval', 'readwrite');
+              var keyValStore = tx.objectStore('keyval');
+              for (let rest in restaurants){
+                keyValStore.put(restaurants[rest],rest);
+              }
+              return tx.complete;
+            }).then(function(db){
+              console.log('added successfully!');
+            });
+          }
+          callback(null, restaurants);
+        }
+      })
+      .fail(function(){
+          dbPromise.then(db => {
+            return db.transaction('keyval').objectStore('keyval').getAll();
+          }).then(allObjs => callback(null,allObjs));
+      });
+    
+    
   }
 
   /**

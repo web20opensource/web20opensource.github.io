@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
            .register('/js/sw.js')
            .then(function() { console.log("Service Worker Registered"); });
   }
-  
+
 });
 
 /**
