@@ -19,15 +19,43 @@
 
 
 
-@media screen and (min-width: 300px){
+@media screen and (min-width: 300px) and (max-width: 549px){
     #restaurants-list li{
-        width: 45%;
-        padding: 10px 10px;
+        width: 100%;
+        padding: 5px 5px;
     }
 
     #restaurants-list li a{
         margin: 5px 0 0;
         padding: 5px 5px;
+    }
+
+    .restTitle , .restAddress {
+        display: none;
+    }
+
+    #restaurant-container{
+        width: 100%;
+    }
+
+    .restaurant-review-header{
+        width: 100%;
+        margin:0;
+        padding: 0;
+    }
+
+    #reviews-container{
+        width: 100%;
+        margin:0;
+        padding: 0;
+    }
+
+    #reviews-list li{
+        width: 100%;
+    }
+
+    .inside #map{
+        width: 100%;
     }
 
 }

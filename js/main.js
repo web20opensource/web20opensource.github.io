@@ -240,6 +240,7 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
 
   const name = document.createElement('h3');
   name.innerHTML = restaurant.name;
+  name.setAttribute('class','restTitle')
   li.append(name);
 
   const neighborhood = document.createElement('p');
@@ -247,12 +248,15 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
   li.append(neighborhood);
 
   const address = document.createElement('p');
+  address.setAttribute('class','restAddress')
   address.innerHTML = restaurant.address;
   li.append(address);
 
   const more = document.createElement('a');
   more.innerHTML = restaurant.name + " details";
   more.href = DBHelper.urlForRestaurant(restaurant);
+  more.setAttribute('role','button');
+
   li.append(more)
 
   /*TODO: improve the accesability navigation */

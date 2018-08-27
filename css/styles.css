@@ -328,7 +328,9 @@ nav h1 a {
   box-sizing: content-box;
 }
 
-
+.restAddress, .restAddress{
+  display: block;
+}
 
 /* ====================== Restaurant Details ====================== */
 
