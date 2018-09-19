@@ -1,11 +1,11 @@
-# Project phase 2 MWS nano degree
+# Project phase 3 (final) MWS nano degree
 
 * author of the updates. mario ruiz , web2.0opensource@gmail.com
-* description. project phase 2 nano degree MWS
-* date. 08/24/2018
-* version. 2.0.0
+* description. project phase 3 nano degree MWS
+* date. 10/15/2018
+* version. 3.0.0
 
-## Project Overview: Stage 2, based on _Three Stage Course Material Project - Restaurant Reviews_
+## Project Overview: Stage 3, based on _Three Stage Course Material Project - Restaurant Reviews_
 
 Main page to review the project for phase 2 is: https://web20opensource.github.io/
 
@@ -15,7 +15,7 @@ The project code was provided by Udacity and just I have, on top of it, updated 
 
 ### What do I do from here?
 
-* Just go and review the page, navigate it. Please feel free to use a screen reader if desired and test in different mobile devices as well.
+* Just go and review the page, navigate it. Please feel free to use a screen reader if desired and test in different mobile devices as well. DO a review from any restaurant offline/online. 
 
 ## Leaflet.js and Mapbox:
 
