@@ -63,7 +63,7 @@ img{
 }
 
 body {
-	background-color: #fdfdfd;
+	background-color: #f3f3f3;
 	position:relative;
 }
 
@@ -192,7 +192,7 @@ nav h1 a {
 #map {
   min-height: 250px;
   width: 100%;
-  background-color: #ccc;
+  background-color: #f3f3f3;
 }
 
 
@@ -367,18 +367,10 @@ nav h1 a {
 
 
 .inside #map {
-  background-color: #ccc;
+  background-color: #f3f3f3;
   height: 100%;
   width: 90%;
 }
-
-
-.inside #footer {
-  bottom: 0;
-  position: absolute;
-  width: 100%;
-}
-
 
 #restaurant-name {
   color: #f18200;
@@ -427,7 +419,8 @@ nav h1 a {
 
 
 #reviews-container {
-  padding: 30px 40px 80px;
+  padding: 30px 40px 20px;
+  width: 100%;
 }
 
 
@@ -480,13 +473,20 @@ nav h1 a {
 
 /*footer*/
 
+.inside #footer {
+  width: 100%;
+}
+
+
 
 #footer {
-  display: block;
-  width: 100%;
-  background-color: #fff;
-  color: #000;
-  padding: 25px;
-  text-align: center;
-  text-transform: uppercase;
+    display: block;
+    width: 100%;
+    background-color: #f3f3f3;
+    color: #000;
+    padding: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    top: 500px;
+    position: relative;
 }

@@ -124,7 +124,6 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     const day = document.createElement('td');
     day.innerHTML = key;
     row.appendChild(day);
-
     const time = document.createElement('td');
     time.innerHTML = operatingHours[key];
     row.appendChild(time);
@@ -141,34 +140,70 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
  //TODO: Improve wai-aria navigation
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
+  const addRevBtn = document.createElement('button');
+  addRevBtn.setAttribute('id','addNewReview')
+  addRevBtn.textContent = "Add a new review";
+  let formCreated = false;
+  addRevBtn.addEventListener('click',(e)=>{
+    debugger;
+    if (formCreated){
+      return;
+    }
+    else{
+      const form = document.createElement("form");
+      const userName = document.createElement("input");
+      userName.setAttribute('name','userName');
+      userName.setAttribute('type','text');
+      const comments = document.createElement("input");
+      comments.setAttribute('name','comments');
+      comments.setAttribute('type','text');
+      const inputIdRest = document.createElement("input");
+      inputIdRest.setAttribute('name','idRest');
+      inputIdRest.setAttribute('type','hidden');
+      inputIdRest.setAttribute('value',self.restaurant.id);
+      const inputRate = document.createElement("input");
+      inputRate.setAttribute('name','rate');
+      inputRate.setAttribute('type','hidden');
+
+      form.appendChild(userName);
+      form.appendChild(comments);
+      form.appendChild(inputIdRest);
+      form.appendChild(inputRate);
+
+      container.appendChild(form);
+      formCreated = true;
+    }
+  });
+
   const title = document.createElement('h3');
   title.tabIndex = 0;
   title.focus();
   title.innerHTML = "Reviews";
   title.className = "restaurant-review-header";
   container.appendChild(title);
-
+  container.appendChild(addRevBtn);
   if (!reviews) {
     const noReviews = document.createElement('p');
     noReviews.innerHTML = 'No reviews yet!';
     container.appendChild(noReviews);
-    return;
+  }else{
+    const ul = document.getElementById('reviews-list');
+    reviews.forEach(review => {
+        ul.appendChild(createReviewHTML(review));
+    });
+    container.appendChild(ul);
   }
-  const ul = document.getElementById('reviews-list');
-  reviews.forEach(review => {
-    ul.appendChild(createReviewHTML(review));
-  });
 
   for (var i = 0, headings = document.querySelectorAll('h1,h2,h3,h4,h5,h6'); i < headings.length; i++) {
    //console.log(headings[i].textContent.trim() + " " +  headings[i].tagName, headings[i]);
    headings[i].tabIndex = 0;
   }
-  headings[0].focus();
-  container.appendChild(ul);
-  const map = document.querySelectorAll("#map")[0];
-  const mapContainer2 = document.querySelectorAll("#reviews-container")[0];
-  mapContainer2.appendChild(map);
 
+  headings[0].focus();
+
+  const map = document.querySelectorAll("#map")[0];
+  const mapContainer2 = document.querySelectorAll("#map-container")[0];
+  mapContainer2.appendChild(map);
 }
 
 /**
