@@ -140,17 +140,17 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
  //TODO: Improve wai-aria navigation
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
-  const addRevBtn = document.createElement('button');
-  addRevBtn.setAttribute('id','addNewReview')
-  addRevBtn.textContent = "Add a new review";
-  let formCreated = false;
+  let commentCreated = false;
+  const addRevBtn = document.getElementById('addNewReview');
   addRevBtn.addEventListener('click',(e)=>{
+    e.preventDefault();
     debugger;
-    if (formCreated){
+    if (commentCreated){
       return;
     }
     else{
-      const form = document.createElement("form");
+      return;
+      /*const form = document.createElement("form");
       const userName = document.createElement("input");
       userName.setAttribute('name','userName');
       userName.setAttribute('type','text');
@@ -171,7 +171,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
       form.appendChild(inputRate);
 
       container.appendChild(form);
-      formCreated = true;
+      commentCreated = true;*/
     }
   });
 
@@ -181,7 +181,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   title.innerHTML = "Reviews";
   title.className = "restaurant-review-header";
   container.appendChild(title);
-  container.appendChild(addRevBtn);
+  //container.appendChild(addRevBtn);
   if (!reviews) {
     const noReviews = document.createElement('p');
     noReviews.innerHTML = 'No reviews yet!';

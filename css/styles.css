@@ -459,6 +459,14 @@ nav h1 a {
 }
 
 
+#addReviewForm input:invalid {
+  border: 2px dashed red;
+}
+
+#addReviewForm input:valid {
+  border: 2px solid black;
+}
+
 #restaurant-hours td:first-child {
   color: #000;
   width: 30%;

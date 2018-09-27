@@ -52,6 +52,13 @@
     <!-- Beginning reviews -->
     <section id="reviews-container">
       <ul id="reviews-list"></ul>
+
+      <form method="POST" action="/reviews/" id="addReviewForm">
+        <label>Your name: </label><input name="userName" placeholder="some name" type="text"  required pattern="[A-Za-z ]+"><br/>
+        <label>Your rating: </label><input name="rating" placeholder="5" type="text"  required pattern="[1-5]"><br/>
+        <label>Comments: </label><input name="commments" placeholder="optional comments" type="textarea" pattern="[A-Za-z ]+"><br/>
+        <input type="submit" value="Add Review" id="addNewReview"/>
+      </form>
     </section>
     <!-- Begin map -->
     <section id="map-container" role="application">
