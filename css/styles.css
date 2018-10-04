@@ -459,6 +459,12 @@ nav h1 a {
 }
 
 
+#addReviewForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #addReviewForm input:invalid {
   border: 2px dashed red;
 }
@@ -478,6 +484,31 @@ nav h1 a {
 }
 
 
+#network-aware{
+  position: fixed;
+  display: block;
+  bottom: 0;
+  text-transform: capitalize;
+  z-index: 1000000;
+}
+
+.disconnected{
+  display: block;
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+
+
+.connected{
+  display: none !important;
+}
 
 /*footer*/
 

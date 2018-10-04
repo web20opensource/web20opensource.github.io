@@ -54,10 +54,10 @@
       <ul id="reviews-list"></ul>
 
       <form method="POST" action="/reviews/" id="addReviewForm">
-        <label>Your name: </label><input name="userName" placeholder="some name" type="text"  required pattern="[A-Za-z ]+"><br/>
-        <label>Your rating: </label><input name="rating" placeholder="5" type="text"  required pattern="[1-5]"><br/>
-        <label>Comments: </label><input name="commments" placeholder="optional comments" type="textarea" pattern="[A-Za-z ]+"><br/>
-        <input type="submit" value="Add Review" id="addNewReview"/>
+        <label>Your name: </label><input name="userName" placeholder="some name" value="default" type="text"  required pattern="[A-Za-z ]+"><br/>
+        <label>Your rating: </label><input name="rating" placeholder="scale: [1-worst]  to [5-best]" value="1" type="text"  required pattern="[1-5]"><br/>
+        <label>Comments: </label><textarea rows="3" cols="20"  name="commments" placeholder="optional comments" pattern="[A-Za-z ]+">something</textarea><br/>
+        <input type="submit" value="Add Review" id="addNewReview" autofocus />
       </form>
     </section>
     <!-- Begin map -->
@@ -82,6 +82,7 @@
   <!-- Database helpers -->
   <script type="text/javascript" src="/js/dbhelper.js"></script>
   <!-- Main javascript file -->
+  <script type="application/javascript" charset="utf-8" src="js/handleOffline.js"></script>
   <script type="text/javascript" src="/js/restaurant_info.js"></script>
   <script type="application/javascript" charset="utf-8" src="js/idb.js"></script>
   <script type="application/javascript" charset="utf-8" src="js/indexDBCache.js"></script>
@@ -89,7 +90,7 @@
   <!-- Google Maps -->
  <!--  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_tKbW6A5pQ-eupxI56myUnHLqYCzOjKo&libraries=places&callback=initMap"></script> -->
   <!-- End scripts -->
-
+  <span id="network-aware"></span>
 </body>
 
 </html>

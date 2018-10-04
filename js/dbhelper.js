@@ -12,7 +12,6 @@ class DBHelper {
     return `http://localhost:1337/restaurants`;
   }
 
-
   /**
    * Fetch all restaurants.
    */
@@ -50,6 +49,78 @@ class DBHelper {
     
     
   }
+
+  networkStatus = 1;
+
+  static async saveReviewInDB(review, removePending){
+    debugger;
+    //DBHelper.saveReview((review)=>{
+       const myRequest = new Request('http://localhost:1337/reviews/', {
+        method: 'POST',
+        body:review
+      });
+
+      await fetch(myRequest)
+        .then(response => response.json())
+        .then(reviewResponse => {
+          console.log(reviewResponse);
+          //reviewsResponsesStore 
+          dbPromise.then(function(db){
+            var tx = db.transaction('reviewsResponses', 'readwrite');
+            var keyValStore = tx.objectStore('reviewsResponses');
+            //store the review and 
+            keyValStore.put(reviewResponse,reviewResponse.id)
+            return tx.complete;
+          }).then(function(db){
+              console.log('review response added successfully to IndexDB to cache it');
+              alert("Thanks for Your review")
+              debugger;
+              if (removePending)
+                DBHelper.removeFromPending(JSON.parse(review).restaurant_id);
+          });
+        }).catch(error => {
+          //store it in DB and fetch when internet is back.
+          debugger;
+          console.log(error);
+          dbPromise.then(function(db){
+            debugger;
+            var tx = db.transaction('reviewsPending', 'readwrite');
+            var keyValStore = tx.objectStore('reviewsPending');
+            //store the review and 
+            keyValStore.put(review,JSON.parse(review).restaurant_id)
+            return tx.complete;
+          }).then(function(db){
+              console.log('review added successfully to IndexDB to add it later when the network conditions are favorable.');
+              alert("Thanks for your review. Will save it when we are back online.");
+          });
+          //turn on a flag of pending to synchronize. 
+        });
+    }
+
+    static pendingReview(){
+      dbPromise.then(function(db){
+          var tx = db.transaction('reviewsPending');
+          var keyValStore = tx.objectStore('reviewsPending');
+          return keyValStore.getAll();
+        }).then(function(db){
+          debugger;
+          for(let rest of db) 
+            DBHelper.saveReviewInDB(rest, true);
+          return;
+        });
+    }
+
+    static removeFromPending(restId){
+        return dbPromise.then(db => {
+          const tx = db.transaction('reviewsPending', 'readwrite');
+          tx.objectStore('reviewsPending').delete(restId);
+          return tx.complete;
+        }).then(function(db){
+          debugger;
+          console.log("removed from pendings");
+        });
+    }
+    
 
   /**
    * Fetch a restaurant by its ID.

@@ -143,13 +143,26 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   let commentCreated = false;
   const addRevBtn = document.getElementById('addNewReview');
   addRevBtn.addEventListener('click',(e)=>{
-    e.preventDefault();
     debugger;
+    e.preventDefault();
     if (commentCreated){
+      alert("You already created a comment. Thanks.")
       return;
     }
     else{
+      DBHelper.saveReviewInDB(JSON.stringify({
+          "restaurant_id": self.restaurant.id,
+          "name": $("#addReviewForm input")[0].value,
+          "rating": $("#addReviewForm input")[1].value,
+          "comments": $("#addReviewForm textarea").val()
+        })
+      );
+      commentCreated = true;
       return;
+      // Initially tried to create dynamically but later 
+      // get a static form. 
+      // Probably is good practice to create it dynamically. 
+      // will leave this code for future reference and guidance into improvements. 
       /*const form = document.createElement("form");
       const userName = document.createElement("input");
       userName.setAttribute('name','userName');
@@ -174,6 +187,8 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
       commentCreated = true;*/
     }
   });
+
+ 
 
   const title = document.createElement('h3');
   title.tabIndex = 0;
