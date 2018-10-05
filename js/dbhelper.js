@@ -12,6 +12,29 @@ class DBHelper {
     return `http://localhost:1337/restaurants`;
   }
 
+  /*fetch reviews*/
+  static async fetchReviews(callback, restId){
+    if (restId){
+      const myRequest = new Request(`http://localhost:1337/reviews/?restaurant_id=${restId}`, {
+        method: 'GET'
+      });
+      await fetch(myRequest)
+        .then(response => response.json())
+        .then(reviews => {
+          console.log(reviews);
+          callback(reviews)
+        }).catch(error => {
+          //store it in DB and fetch when internet is back.
+          debugger;
+          console.log(error);
+          //turn on a flag of pending to synchronize. 
+        });
+
+    }else{
+      return;
+    }
+  }
+
   /**
    * Fetch all restaurants.
    */
@@ -50,9 +73,7 @@ class DBHelper {
     
   }
 
-  networkStatus = 1;
-
-  static async saveReviewInDB(review, removePending){
+  static async saveReviewInDB(review, removePending, callback){
     debugger;
     //DBHelper.saveReview((review)=>{
        const myRequest = new Request('http://localhost:1337/reviews/', {
@@ -92,12 +113,13 @@ class DBHelper {
           }).then(function(db){
               console.log('review added successfully to IndexDB to add it later when the network conditions are favorable.');
               alert("Thanks for your review. Will save it when we are back online.");
+              callback(review);
           });
           //turn on a flag of pending to synchronize. 
         });
     }
 
-    static pendingReview(){
+    static pendingReview(callback){
       dbPromise.then(function(db){
           var tx = db.transaction('reviewsPending');
           var keyValStore = tx.objectStore('reviewsPending');
@@ -105,7 +127,7 @@ class DBHelper {
         }).then(function(db){
           debugger;
           for(let rest of db) 
-            DBHelper.saveReviewInDB(rest, true);
+            DBHelper.saveReviewInDB(rest, true, callback);
           return;
         });
     }

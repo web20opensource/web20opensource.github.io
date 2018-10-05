@@ -5,16 +5,17 @@
     if (connected == 'offline'){
       legend.innerHTML = "disconnected";
       legend.setAttribute('aria-label',"currently diconnected from internet");
-      legend.className = 'disconnected';
-      legend.focus();
+      legend.className = 'disconnected';false
+      alert('currently diconnected from internet');
       DBHelper.network = false;
     }else{
       legend.innerHTML = "connected";
-      legend.className = "connected";
-      legend.setAttribute('aria-label',"currently connected to internet");      
-      DBHelper.network = true;
-      legend.focus();      
-      DBHelper.pendingReview();
+      legend.className = "connected";true
+      legend.setAttribute('aria-label',"currently connected to internet");5
+      DBHelper.network = true;4
+      alert("currently connected to internet");3
+      debugger;
+      DBHelper.pendingReview(addReviewToExistingList);2
     }
   }
 

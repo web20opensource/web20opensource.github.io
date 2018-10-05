@@ -108,8 +108,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
     fillRestaurantHoursHTML();
   }
   // fill reviews
-  //debugger;
-  fillReviewsHTML();
+  DBHelper.fetchReviews(fillReviewsHTML, self.restaurant.id);
 
 }
 
@@ -134,62 +133,73 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
   }
 }
 
+
+
+let commentCreated = false;
+const addRevBtn = document.getElementById('addNewReview');
+addRevBtn.addEventListener('click',(e)=>{
+  debugger;
+  e.preventDefault();
+  if (commentCreated){
+    alert("You already created a comment. Thanks.")
+    return;
+  }
+  else{
+    DBHelper.saveReviewInDB(JSON.stringify({
+        "restaurant_id": self.restaurant.id,
+        "name": $("#addReviewForm input")[0].value,
+        "rating": $("#addReviewForm input")[1].value,
+        "comments": $("#addReviewForm textarea").val()
+      }),
+    false,
+    addReviewToExistingList);
+    commentCreated = true;
+    return;
+    // Initially tried to create dynamically but later 
+    // get a static form. 
+    // Probably is good practice to create it dynamically. 
+    // will leave this code for future reference and guidance into improvements. 
+    /*const form = document.createElement("form");
+    const userName = document.createElement("input");
+    userName.setAttribute('name','userName');
+    userName.setAttribute('type','text');
+    const comments = document.createElement("input");
+    comments.setAttribute('name','comments');
+    comments.setAttribute('type','text');
+    const inputIdRest = document.createElement("input");
+    inputIdRest.setAttribute('name','idRest');
+    inputIdRest.setAttribute('type','hidden');
+    inputIdRest.setAttribute('value',self.restaurant.id);
+    const inputRate = document.createElement("input");
+    inputRate.setAttribute('name','rate');
+    inputRate.setAttribute('type','hidden');
+
+    form.appendChild(userName);
+    form.appendChild(comments);
+    form.appendChild(inputIdRest);
+    form.appendChild(inputRate);
+
+    container.appendChild(form);
+    commentCreated = true;*/
+  }
+});
+
 /**
  * Create all reviews HTML and add them to the webpage.
  */
  //TODO: Improve wai-aria navigation
+
+
+addReviewToExistingList = (review = {}) => {
+    const ul = document.getElementById('reviews-list');
+    review = JSON.parse(review);
+    review.date = new Date().toDateString();
+    ul.appendChild(createReviewHTML(review));
+    return;
+}
+
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
-  let commentCreated = false;
-  const addRevBtn = document.getElementById('addNewReview');
-  addRevBtn.addEventListener('click',(e)=>{
-    debugger;
-    e.preventDefault();
-    if (commentCreated){
-      alert("You already created a comment. Thanks.")
-      return;
-    }
-    else{
-      DBHelper.saveReviewInDB(JSON.stringify({
-          "restaurant_id": self.restaurant.id,
-          "name": $("#addReviewForm input")[0].value,
-          "rating": $("#addReviewForm input")[1].value,
-          "comments": $("#addReviewForm textarea").val()
-        })
-      );
-      commentCreated = true;
-      return;
-      // Initially tried to create dynamically but later 
-      // get a static form. 
-      // Probably is good practice to create it dynamically. 
-      // will leave this code for future reference and guidance into improvements. 
-      /*const form = document.createElement("form");
-      const userName = document.createElement("input");
-      userName.setAttribute('name','userName');
-      userName.setAttribute('type','text');
-      const comments = document.createElement("input");
-      comments.setAttribute('name','comments');
-      comments.setAttribute('type','text');
-      const inputIdRest = document.createElement("input");
-      inputIdRest.setAttribute('name','idRest');
-      inputIdRest.setAttribute('type','hidden');
-      inputIdRest.setAttribute('value',self.restaurant.id);
-      const inputRate = document.createElement("input");
-      inputRate.setAttribute('name','rate');
-      inputRate.setAttribute('type','hidden');
-
-      form.appendChild(userName);
-      form.appendChild(comments);
-      form.appendChild(inputIdRest);
-      form.appendChild(inputRate);
-
-      container.appendChild(form);
-      commentCreated = true;*/
-    }
-  });
-
- 
-
   const title = document.createElement('h3');
   title.tabIndex = 0;
   title.focus();
@@ -231,7 +241,7 @@ createReviewHTML = (review) => {
   li.appendChild(name);
 
   const date = document.createElement('p');
-  date.innerHTML = review.date;
+  date.innerHTML = review.date || new Date(review.createdAt).toDateString();
   li.appendChild(date);
 
   const rating = document.createElement('p');
