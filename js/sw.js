@@ -8,12 +8,10 @@ self.addEventListener("install", function(event) {
   */
   event.waitUntil(
     caches.open("restaurant_reviews_v1").then(function(cache) {
-      cache.addAll([ 
-        "/restaurant.html",
-      ]);
       return cache.addAll([
         "/",
         "/index.html",
+        "/restaurant.html",
         "/css/styles.css",
         "/css/mqueries.css",
         "https://necolas.github.io/normalize.css/8.0.0/normalize.css",
