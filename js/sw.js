@@ -8,6 +8,18 @@ self.addEventListener("install", function(event) {
   */
   event.waitUntil(
     caches.open("restaurant_reviews_v3").then(function(cache) {
+      cache.addAll(
+        "/restaurant.html?id=1",
+        "/restaurant.html?id=2",
+        "/restaurant.html?id=3",
+        "/restaurant.html?id=4",
+        "/restaurant.html?id=5",
+        "/restaurant.html?id=6",
+        "/restaurant.html?id=7",
+        "/restaurant.html?id=8",
+        "/restaurant.html?id=9",
+        "/restaurant.html?id=10"
+      );
       return cache.addAll([
         "/",
         "/index.html",
@@ -24,61 +36,78 @@ self.addEventListener("install", function(event) {
         "/img/8.jpg",
         "/img/9.jpg",
         "/img/10.jpg",
-      		"/js/dbhelper.js",
-      		"/js/main.js",
-          "/js/sw.js",
-          "/js/indexDBCache.js",
-          "/js/idb.js",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/12/1206/1539.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/12/1206/1540.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/12/1205/1539.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/12/1207/1539.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/12/1205/1540.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/12/1207/1540.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19304/24632.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19305/24632.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19304/24633.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19305/24633.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19304/24631.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19305/24631.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19304/24634.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19305/24634.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19299/24631.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19299/24632.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19298/24632.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19298/24631.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19300/24631.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19300/24632.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19299/24630.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19299/24633.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19300/24630.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19298/24633.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19298/24630.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://api.tiles.mapbox.com/v4/mapbox.streets/16/19300/24633.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
-      		"https://unpkg.com/leaflet@1.3.1/dist/leaflet.js",
-      		"https://unpkg.com/leaflet@1.3.1/dist/leaflet.css",
-      		"https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon-2x.png",
-      		"https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon.png",
-      		"https://unpkg.com/leaflet@1.3.1/dist/images/marker-shadow.png",
-      		"/restaurant.html?id=1",
-      		"/restaurant.html?id=2",
-      		"/restaurant.html?id=3",
-      		"/restaurant.html?id=4",
-      		"/restaurant.html?id=5",
-      		"/restaurant.html?id=6",
-      		"/restaurant.html?id=7",
-      		"/restaurant.html?id=8",
-      		"/restaurant.html?id=9",
-      		"/restaurant.html?id=10"
+        "/js/dbhelper.js",
+        "/js/main.js",
+        "/js/sw.js",
+        "/js/indexDBCache.js",
+        "/js/idb.js",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/12/1206/1539.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/12/1206/1540.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/12/1205/1539.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/12/1207/1539.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/12/1205/1540.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/12/1207/1540.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19304/24632.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19305/24632.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19304/24633.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19305/24633.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19304/24631.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19305/24631.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19304/24634.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19305/24634.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19299/24631.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19299/24632.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19298/24632.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19298/24631.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19300/24631.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19300/24632.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19299/24630.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19299/24633.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19300/24630.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19298/24633.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19298/24630.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://api.tiles.mapbox.com/v4/mapbox.streets/16/19300/24633.jpg70?access_token=pk.eyJ1IjoibWFyaW9ydWl6IiwiYSI6ImNpc2RpY2RwZzAwNG0zb3J0Nm1sZmN3bW0ifQ.VVlXVKrCnJU7uuarUtIsuQ",
+        "https://unpkg.com/leaflet@1.3.1/dist/leaflet.js",
+        "https://unpkg.com/leaflet@1.3.1/dist/leaflet.css",
+        "https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon-2x.png",
+        "https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon.png",
+        "https://unpkg.com/leaflet@1.3.1/dist/images/marker-shadow.png"
       ]);
     })
   )
 });
 
+
+/*Clean-up & migration.*/
+self.addEventListener('activate', function(event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.filter(function(cacheName) {
+          // Return true if you want to remove this cache,
+          // but remember that caches are shared across
+          // the whole origin
+        }).map(function(cacheName) {
+          return caches.delete(cacheName);
+        })
+      );
+    })
+  );
+});
+
+
 self.addEventListener("fetch", function(event){
-	event.respondWith(
-        cache.matches(event.request).then(function(response){
+  event.respondWith(
+        cache.match(event.request).then(function(response){
             return response || fetch(event.request);
+        })
+        .catch(function() {
+          // If both fail, show a generic fallback:
+          debugger;
+          return caches.match('/offline.html');
+          // However, in reality you'd have many different
+          // fallbacks, depending on URL & headers.
+          // Eg, a fallback silhouette image for avatars.
         })
     );
 });
