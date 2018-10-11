@@ -7,7 +7,7 @@ self.addEventListener("install", function(event) {
    # respond 200 OK when offline
   */
   event.waitUntil(
-    caches.open("restaurant_reviews_v1").then(function(cache) {
+    caches.open("restaurant_reviews_v2").then(function(cache) {
       return cache.addAll([
         "/",
         "/index.html",
