@@ -71,7 +71,8 @@ self.addEventListener("install", function(event) {
         "https://unpkg.com/leaflet@1.3.1/dist/leaflet.css",
         "https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon-2x.png",
         "https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon.png",
-        "https://unpkg.com/leaflet@1.3.1/dist/images/marker-shadow.png"
+        "https://unpkg.com/leaflet@1.3.1/dist/images/marker-shadow.png",
+        "/offline.html"
       ]);
     })
   )
