@@ -8,7 +8,7 @@ self.addEventListener("install", function(event) {
   */
   event.waitUntil(
     caches.open("restaurant_reviews_v3").then(function(cache) {
-      cache.addAll(
+      cache.addAll( 
         "/restaurant.html?id=1",
         "/restaurant.html?id=2",
         "/restaurant.html?id=3",
