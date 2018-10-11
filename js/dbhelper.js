@@ -98,6 +98,8 @@ class DBHelper {
               debugger;
               if (removePending)
                 DBHelper.removeFromPending(JSON.parse(review).restaurant_id);
+              else
+                addReviewToExistingList(review);
           });
         }).catch(error => {
           //store it in DB and fetch when internet is back.
