@@ -293,6 +293,7 @@ nav h1 a {
   max-width: 100%;
   min-height: 0;
   min-width: 100%;
+  border-radius: 5%;
 }
 
 
@@ -387,6 +388,7 @@ nav h1 a {
 
 #restaurant-img {
 	width: 90%;
+  border-radius: 5%;
 }
 
 
