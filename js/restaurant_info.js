@@ -198,9 +198,7 @@ addReviewToExistingList = (review = {}) => {
     if (ul.hasChildNodes());
     else{
       const p = document.querySelector(".removeMeLater");
-      p.innerHTML = "";
-      const container = document.getElementById('reviews-container');
-      container.appendChild(ul);
+      p.remove();
     }
     ul.appendChild(createReviewHTML(review));
     return;
