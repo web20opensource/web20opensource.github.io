@@ -212,6 +212,9 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   title.innerHTML = "Reviews";
   title.className = "restaurant-review-header";
   container.appendChild(title);
+  const reviewList = document.createElement('ul');
+  reviewsList.setAttribute("id", "reviews-list");
+  container.appendChild(reviewsList);
   //container.appendChild(addRevBtn);
   if (!reviews) {
     const noReviews = document.createElement('p');
