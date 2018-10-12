@@ -27,7 +27,7 @@ class DBHelper {
           //store it in DB and fetch when internet is back.
           debugger;
           console.log(error);
-          callback(reviews)
+          callback(noreviews)
           //turn on a flag of pending to synchronize. 
         });
 
