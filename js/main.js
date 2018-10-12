@@ -151,6 +151,9 @@ updateRestaurants = () => {
   })
 }
 
+$("#cuisines-select").change(updateRestaurants);
+$("#neighborhoods-select").change(updateRestaurants);
+
 /**
  * Clear current restaurants, their HTML and remove their map markers.
  */
