@@ -195,6 +195,13 @@ addReviewToExistingList = (review = {}) => {
     const ul = document.getElementById('reviews-list');
     review = JSON.parse(review);
     review.date = new Date().toDateString();
+    if (ul.hasChildNodes());
+    else{
+      const p = document.querySelector(".removeMeLater");
+      p.innerHTML = "";
+      const container = document.getElementById('reviews-container');
+      container.appendChild(ul);
+    }
     ul.appendChild(createReviewHTML(review));
     return;
 }
@@ -211,6 +218,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   if (!reviews) {
     const noReviews = document.createElement('p');
     noReviews.innerHTML = 'No reviews yet!';
+    noReviews.className = "removeMeLater";
     container.appendChild(noReviews);
   }else{
     const ul = document.getElementById('reviews-list');
