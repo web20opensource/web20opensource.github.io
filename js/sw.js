@@ -102,15 +102,7 @@ self.addEventListener('fetch', function(event) {
   console.log(event.request.url);
   event.respondWith(
         caches.match(event.request).then(function(response){
-            if (response)
-              return response
-            else{
-              return fetch(event.request).then(res => {
-                  return caches.open(cacheName).then(cache => {
-                    return cache.put(event.request.url, res)
-                  })
-              })
-            } 
+          return response || fetch(event.request)
         })
         .catch(function() {
           // If both fail, show a generic fallback:
