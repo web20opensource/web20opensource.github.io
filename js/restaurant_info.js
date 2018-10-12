@@ -70,6 +70,7 @@ fetchRestaurantFromURL = (callback) => {
       self.restaurant = restaurant;
       if (!restaurant) {
         console.error(error);
+        fillReviewsHTML();
         return;
       }
       fillRestaurantHTML();
