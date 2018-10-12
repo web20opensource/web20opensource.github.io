@@ -11,7 +11,16 @@ self.addEventListener("install", function(event) {
       return cache.addAll([
         "/",
         "/index.html",
-        "/restaurant.html",
+        "/restaurant.html?id=1",
+        "/restaurant.html?id=2",
+        "/restaurant.html?id=3",
+        "/restaurant.html?id=4",
+        "/restaurant.html?id=5",
+        "/restaurant.html?id=6",
+        "/restaurant.html?id=7",
+        "/restaurant.html?id=8",
+        "/restaurant.html?id=9",
+        "/restaurant.html?id=10",
         "/css/styles.css",
         "/css/mqueries.css",
         "https://necolas.github.io/normalize.css/8.0.0/normalize.css",
@@ -91,7 +100,15 @@ self.addEventListener('fetch', function(event) {
   console.log(event.request.url);
   event.respondWith(
         caches.match(event.request).then(function(response){
-            return response || fetch(event.request);
+            if (response)
+              return response
+            else{
+              return fetch(event.request).then(res => {
+                  return caches.open(cacheName).then(cache => {
+                    return cache.put(event.request.url, res)
+                  })
+              })
+            } 
         })
         .catch(function() {
           // If both fail, show a generic fallback:
