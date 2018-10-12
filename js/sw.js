@@ -87,8 +87,9 @@ self.addEventListener('activate', function(event) {
 
 
 self.addEventListener("fetch", function(event){
+  console.log(event.request.url);
   event.respondWith(
-        cache.match(event.request).then(function(response){
+        caches.match(event.request).then(function(response){
             return response || fetch(event.request);
         })
         .catch(function() {
