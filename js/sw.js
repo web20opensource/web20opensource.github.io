@@ -106,7 +106,7 @@ self.addEventListener('fetch', function(event) {
           else 
             return fetch(event.request).catch(function(){
               let init = { "status" : 200 , "statusText" : "OK" };
-              let response = new Response([],init);
+              let response = new Response(null,init);
             })
         })
         .catch(function() {
