@@ -52,9 +52,9 @@
     <!-- Beginning reviews -->
     <section id="reviews-container">
       <form method="POST" action="/reviews/" id="addReviewForm">
-        <label>Your name: </label><input name="userName" placeholder="some name" value="default" type="text"  required pattern="[A-Za-z ]+"><br/>
+        <label>Your name: </label><input name="userName" placeholder="Your name" value="" type="text"  required pattern="[A-Za-z ]+"><br/>
         <label>Your rating: </label><input name="rating" placeholder="scale: [1-worst]  to [5-best]" value="1" type="text"  required pattern="[1-5]"><br/>
-        <label>Comments: </label><textarea rows="3" cols="20"  name="commments" placeholder="optional comments" pattern="[A-Za-z ]+">something</textarea><br/>
+        <label>Comments: </label><textarea rows="3" cols="20"  name="commments" placeholder="optional comments" pattern="[A-Za-z ]+"></textarea><br/>
         <input type="submit" value="Add Review" id="addNewReview" autofocus />
       </form>
     </section>
