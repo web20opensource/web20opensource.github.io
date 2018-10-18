@@ -1,0 +1,9 @@
+{
+  "name": "My Restaurants Reviews project - phase 3",
+  "short_name": "Rest reviews",
+  "start_url": "index.html",
+  "icons": [],
+  "background_color": "#3E4EB8",
+  "display": "standalone",
+  "theme_color": "#2E3AA1"
+}
