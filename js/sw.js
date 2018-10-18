@@ -102,7 +102,12 @@ self.addEventListener('fetch', function(event) {
   console.log(event.request.url);
   event.respondWith(
         caches.match(event.request).then(function(response){
-          return response || fetch(event.request)
+          if (response) return response;
+          else 
+            return fetch(event.request).catch(function(){
+              let init = { "status" : 200 , "statusText" : "OK" };
+              let response = new Response([],init);
+            })
         })
         .catch(function() {
           // If both fail, show a generic fallback:
