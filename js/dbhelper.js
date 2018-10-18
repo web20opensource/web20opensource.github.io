@@ -28,6 +28,7 @@ class DBHelper {
           debugger;
           console.log(error);
           fillReviewsHTML();
+          return new Response(null,{ "status" : 200 , "statusText" : "OK" });
       }
 
     }
@@ -115,6 +116,7 @@ class DBHelper {
               alert("Thanks for your review. Will save it when we are back online.");
               callback(review);
           });
+          return new Response(null,{ "status" : 200 , "statusText" : "OK" });
           //turn on a flag of pending to synchronize. 
         });
     }
