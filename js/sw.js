@@ -73,7 +73,7 @@ self.addEventListener("install", function(event) {
         //"https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon.png",
         //"https://unpkg.com/leaflet@1.3.1/dist/images/marker-shadow.png",
         "/offline.html"
-      ]);
+      ])
     })
   )
 });
@@ -91,14 +91,13 @@ self.addEventListener('activate', function(event) {
         }).map(function(cacheName) {
           return caches.delete(cacheName);
         })
-      );
+      )
     })
-  );
+  )
 });
 
 
 self.addEventListener('fetch', function(event) {
-  console.log(event.request.url);
   event.respondWith(
         caches.match(event.request).then(function(response){
           if (response) return response;
@@ -116,5 +115,5 @@ self.addEventListener('fetch', function(event) {
           // fallbacks, depending on URL & headers.
           // Eg, a fallback silhouette image for avatars.
         })
-    );
+    )
 });
