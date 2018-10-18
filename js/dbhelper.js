@@ -18,20 +18,18 @@ class DBHelper {
       const myRequest = new Request(`http://localhost:1337/reviews/?restaurant_id=${restId}`, {
         method: 'GET'
       });
-      await fetch(myRequest)
-        .then(response => response.json())
-        .then(reviews => {
-          console.log(reviews);
-          callback(reviews)
-        }).catch(error => {
+      try{
+        let res = await fetch(myRequest);
+        let response = await res.json()
+        console.log(response);
+        callback(response)
+      }catch{
           //store it in DB and fetch when internet is back.
           debugger;
           console.log(error);
           fillReviewsHTML();
-        });
+      }
 
-    }else{
-      return;
     }
   }
 
