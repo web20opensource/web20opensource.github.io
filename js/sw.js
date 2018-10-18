@@ -98,20 +98,17 @@ self.addEventListener('activate', function(event) {
 
 
 self.addEventListener('fetch', function(event) {
-  debugger;
   console.log(event.request.url);
   event.respondWith(
         caches.match(event.request).then(function(response){
           if (response) return response;
           else 
-            return fetch(event.request).catch(function(){
-              let init = { "status" : 200 , "statusText" : "OK" };
-              let response = new Response(null,init);
+            return fetch(event.request).then(function(networkResponse) {
+              cache.put(event.request, networkResponse);
             })
         })
         .catch(function() {
           // If both fail, show a generic fallback:
-          debugger;
           return caches.match('/offline.html');
           // However, in reality you'd have many different
           // fallbacks, depending on URL & headers.
