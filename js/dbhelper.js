@@ -26,7 +26,6 @@ class DBHelper {
       }catch{
           //store it in DB and fetch when internet is back.
           debugger;
-          console.log(error);
           fillReviewsHTML();
           return new Response(null,{ "status" : 200 , "statusText" : "OK" });
       }
