@@ -27,7 +27,6 @@ class DBHelper {
           //store it in DB and fetch when internet is back.
           debugger;
           fillReviewsHTML();
-          return new Response(null,{ "status" : 200 , "statusText" : "OK" });
       }
 
     }
