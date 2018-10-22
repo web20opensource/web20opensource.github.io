@@ -20,9 +20,9 @@ class DBHelper {
       });
       try{
         let res = await fetch(myRequest);
-        let response = await res.json()
+        let response = await res.json();
         console.log(response);
-        callback(response)
+        callback(response);
       }catch{
           //store it in DB and fetch when internet is back.
           debugger;
