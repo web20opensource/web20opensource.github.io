@@ -102,8 +102,7 @@ self.addEventListener('fetch', function(event) {
   event.respondWith(
         caches.match(event.request).then(function(response){
           if (response) return response;
-          else 
-            return fetch(event.request).then(function(networkResponse) {
+          return fetch(event.request).then(function(networkResponse) {
               //cache the new responses
               cache.put(event.request, networkResponse.clone());
               return networkResponse;
