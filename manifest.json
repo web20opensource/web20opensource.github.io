@@ -2,7 +2,18 @@
   "name": "My Restaurants Reviews project - phase 3",
   "short_name": "Rest reviews",
   "start_url": "index.html",
-  "icons": [],
+  "icons": [
+    {
+      "src": "/img/192px.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/img/512px.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
   "background_color": "#3E4EB8",
   "display": "standalone",
   "theme_color": "#2E3AA1"
