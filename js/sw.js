@@ -11,6 +11,7 @@ self.addEventListener("install", function(event) {
       return cache.addAll([
         "/",
         "/index.html",
+        "/restaurant.html",
         "/restaurant.html?id=1",
         "/restaurant.html?id=2",
         "/restaurant.html?id=3",
