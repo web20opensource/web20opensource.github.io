@@ -23,9 +23,10 @@ class DBHelper {
         let response = await res.json();
         console.log(response);
         callback(response);
-      }catch{
+      }catch(e){
           //store it in DB and fetch when internet is back.
           debugger;
+          console.log(e);
           fillReviewsHTML();
       }
 
