@@ -46,6 +46,10 @@ section{
 }
 
 
+#installAnUpdate{
+  display:none;
+}
+
 body,td,th,p{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;

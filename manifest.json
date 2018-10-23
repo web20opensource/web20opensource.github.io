@@ -1,7 +1,7 @@
 {
   "name": "My Restaurants Reviews project - phase 3",
   "short_name": "Rest reviews",
-  "start_url": "/index.html",
+  "start_url": "/",
   "icons": [
     {
       "src": "/img/192px.png",

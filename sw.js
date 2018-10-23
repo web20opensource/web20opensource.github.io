@@ -16,6 +16,24 @@ self.addEventListener('activate', function(event) {
   )
 });
 
+/*install app*/
+let deferredPrompt;
+
+self.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+  // Update UI notify the user they can add to home screen
+  let btnAdd = self.document.getElementById('installAnUpdate');
+  btnAdd.style.display = 'block';
+});
+
+self.addEventListener('appinstalled', (evt) => {
+  console.log('app installed');
+});
+
+
 
 /*install event*/
 self.addEventListener("install", function(event) {
@@ -45,16 +63,16 @@ self.addEventListener("install", function(event) {
         "/css/styles.css",
         "/css/mqueries.css",
         "https://necolas.github.io/normalize.css/8.0.0/normalize.css",
-        "/img/1.jpg",
-        "/img/2.jpg",
-        "/img/3.jpg",
-        "/img/4.jpg",
-        "/img/5.jpg",
-        "/img/6.jpg",
-        "/img/7.jpg",
-        "/img/8.jpg",
-        "/img/9.jpg",
-        "/img/10.jpg",
+        "/img/1.webp",
+        "/img/2.webp",
+        "/img/3.webp",
+        "/img/4.webp",
+        "/img/5.webp",
+        "/img/6.webp",
+        "/img/7.webp",
+        "/img/8.webp",
+        "/img/9.webp",
+        "/img/10.webp",
         "/js/dbhelper.js",
         "/js/main.js",
         "/sw.js",
@@ -76,16 +94,19 @@ self.addEventListener('fetch', function(event) {
           if (response) return response;
           return fetch(event.request).then(function(networkResponse) {
               //cache the new responses
+              if(!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') { 
+                return networkResponse ; 
+              }
               cache.put(event.request, networkResponse.clone());
               return networkResponse;
             })
         })
-        .catch(function() {
+        //.catch(function() {
           // If both fail, show a generic fallback:
-          return caches.match('/offline.html');
+        //  return caches.match('/offline.html');
           // However, in reality you'd have many different
           // fallbacks, depending on URL & headers.
           // Eg, a fallback silhouette image for avatars.
-        })
+        //})
     )
 });

@@ -237,7 +237,7 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
   const FIimage = document.createElement('img');
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.src = `/${DBHelper.imageUrlForRestaurant(restaurant)}.jpg`;
+  image.src = `/${DBHelper.imageUrlForRestaurant(restaurant)}.webp`;
   image.setAttribute("alt","A picture from the restaurant " + restaurant.name);
 
   figure.append(image);
@@ -308,3 +308,22 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 } */
 
+
+//sw.js needs this code.
+let btnAdd = self.document.getElementById('installAnUpdate');
+btnAdd.addEventListener('click', (e) => {
+  // hide our user interface that shows our A2HS button
+  btnAdd.style.display = 'none';
+  // Show the prompt
+  deferredPrompt.prompt();
+  // Wait for the user to respond to the prompt
+  deferredPrompt.userChoice
+    .then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the A2HS prompt');
+      } else {
+        console.log('User dismissed the A2HS prompt');
+      }
+      deferredPrompt = null;
+    });
+});
