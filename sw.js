@@ -57,7 +57,7 @@ self.addEventListener("install", function(event) {
         "/img/10.jpg",
         "/js/dbhelper.js",
         "/js/main.js",
-        "/js/sw.js",
+        "/sw.js",
         "/js/indexDBCache.js",
         "/js/idb.js",
         "/js/restaurant_info.js",
