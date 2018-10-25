@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
  */
 initMap = () => {
   fetchRestaurantFromURL((error, restaurant) => {
-    if (error) { // Got an error!
+    if (error) { /* Got an error!*/
       console.error(error);
     } else {      
       self.newMap = L.map('map', {
@@ -37,22 +37,6 @@ initMap = () => {
   });
 }  
  
-/* window.initMap = () => {
-  fetchRestaurantFromURL((error, restaurant) => {
-    if (error) { // Got an error!
-      console.error(error);
-    } else {
-      self.map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
-        center: restaurant.latlng,
-        scrollwheel: false
-      });
-      fillBreadcrumb();
-      DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
-    }
-  });
-} */
-
 /**
  * Get current restaurant from page URL.
  */
@@ -62,7 +46,7 @@ fetchRestaurantFromURL = (callback) => {
     return;
   }
   const id = getParameterByName('id');
-  if (!id) { // no id found in URL
+  if (!id) {  /*no id found in URL*/
     error = 'No restaurant id in URL'
     callback(error, null);
   } else {
@@ -103,11 +87,11 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   cuisine.tabIndex = 0;
 
-  // fill operating hours
+  /* fill operating hours*/
   if (restaurant.operating_hours) {
     fillRestaurantHoursHTML();
   }
-  // fill reviews
+  /* fill reviews*/
   DBHelper.fetchReviews(fillReviewsHTML, self.restaurant.id);
 
 }
@@ -154,7 +138,7 @@ addRevBtn.addEventListener('click',(e)=>{
     addReviewToExistingList);
     commentCreated = true;
     return;
-    // Initially tried to create dynamically but later 
+    /* Initially tried to create dynamically but later 
     // get a static form. 
     // Probably is good practice to create it dynamically. 
     // will leave this code for future reference and guidance into improvements. 
@@ -214,7 +198,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const reviewsList = document.createElement('ul');
   reviewsList.setAttribute("id", "reviews-list");
   container.appendChild(reviewsList);
-  //container.appendChild(addRevBtn);
+  /*container.appendChild(addRevBtn);*/
   if (!reviews) {
     const noReviews = document.createElement('p');
     noReviews.innerHTML = 'No reviews yet!';
@@ -229,7 +213,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   }
 
   for (var i = 0, headings = document.querySelectorAll('h1,h2,h3,h4,h5,h6'); i < headings.length; i++) {
-   //console.log(headings[i].textContent.trim() + " " +  headings[i].tagName, headings[i]);
+   /*console.log(headings[i].textContent.trim() + " " +  headings[i].tagName, headings[i]);*/
    headings[i].tabIndex = 0;
   }
 
