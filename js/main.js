@@ -246,6 +246,7 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img b-lazy';
   image.setAttribute('data-src',`/${DBHelper.imageUrlForRestaurant(restaurant)}.webp`);
+  image.src="";
   image.setAttribute("alt","A picture from the restaurant " + restaurant.name);
 
   figure.append(image);
