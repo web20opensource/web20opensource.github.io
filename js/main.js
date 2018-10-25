@@ -40,12 +40,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 //lazy load for images...
-window.addEventListener('load', (event) => {
+/*window.addEventListener('load', (event) => {
   let imgRest = document.querySelectorAll(".restaurant-img");
   imgRest.forEach((img)=>{
     img.src = img.getAttribute('data-src');
   });
-});
+});*/
 
 
 /**
@@ -245,8 +245,8 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
   const FIimage = document.createElement('img');
   const image = document.createElement('img');
   image.className = 'restaurant-img b-lazy';
-  image.setAttribute('data-src',`/${DBHelper.imageUrlForRestaurant(restaurant)}.webp`);
-  image.src="";
+  //image.setAttribute('data-src',`/${DBHelper.imageUrlForRestaurant(restaurant)}.webp`);
+  image.src=`/${DBHelper.imageUrlForRestaurant(restaurant)}.webp`;
   image.setAttribute("alt","A picture from the restaurant " + restaurant.name);
 
   figure.append(image);
