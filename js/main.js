@@ -233,7 +233,7 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
   /* TODO: add srcset to support different image sizes and resolution device widths*/
   const FIimage = document.createElement('img');
   const image = document.createElement('img');
-  image.className = 'restaurant-img';
+  image.className = 'restaurant-img b-lazy';
   image.src = `/${DBHelper.imageUrlForRestaurant(restaurant)}.webp`;
   image.setAttribute("alt","A picture from the restaurant " + restaurant.name);
 

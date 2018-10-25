@@ -92,7 +92,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   /* TODO: add srcset to support different image sizes and resolution device widths*/
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
+  image.className = 'restaurant-img b-lazy'
   image.src = `/${DBHelper.imageUrlForRestaurant(restaurant)}.webp`;
   image.setAttribute("alt", "A picture from the restaurant " + restaurant.name);
 
@@ -294,3 +294,4 @@ getParameterByName = (name, url) => {
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+
