@@ -100,6 +100,7 @@ self.addEventListener('fetch', function(event) {
           if (response) return response;
           return fetch(event.request).then(function(networkResponse) {
               //cache the new responses
+              //To prevent errors and exceeding services worker Quota you need to check your responses if they are valid.
               if(!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') { 
                 return networkResponse ; 
               }

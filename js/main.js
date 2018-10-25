@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 });
 
+//lazy load for images...
 window.addEventListener('load', (event) => {
   let imgRest = document.querySelectorAll(".restaurant-img");
   imgRest.forEach((img)=>{
