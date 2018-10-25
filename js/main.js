@@ -151,9 +151,6 @@ updateRestaurants = () => {
   })
 }
 
-jQuery("#cuisines-select").change(updateRestaurants);
-jQuery("#neighborhoods-select").change(updateRestaurants);
-
 /**
  * Clear current restaurants, their HTML and remove their map markers.
  */
@@ -327,3 +324,7 @@ btnAdd.addEventListener('click', (e) => {
       deferredPrompt = null;
     });
 });
+
+
+jQuery("#cuisines-select").change(updateRestaurants);
+jQuery("#neighborhoods-select").change(updateRestaurants);
