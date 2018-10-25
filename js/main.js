@@ -270,37 +270,44 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
 
 
   const fav = document.createElement('span');
-  if (restaurant.is_favorite === 'true'){
-    fav.className = "favRest";
-    fav.setAttribute('aria-label','This is one of my favorite restaurants');
-  }
-  else{
-    fav.className = "notFavRest";
-    fav.setAttribute('aria-label','Not one of my favorites');
-  }
 
   fav.addEventListener('click',(e)=>{
     //TODO improve when offline ... Handle the server response and then update the UI. 
     if (DBHelper.network){
+      
+      if (!e.target.className){
+        //first time, not set yet.
+        if (restaurant.is_favorite === 'true'){
+          fav.className = "favRest";
+        }
+        else{
+          fav.className = "notFavRest";
+        }
+      }
+      
       if(e.target.className == 'favRest'){
         e.target.className = 'notFavRest';
+        fav.setAttribute('aria-label','Not one of my favorites');
         fetch(new Request(
           `http://localhost:1337/restaurants/${e.target.getAttribute('data-src')}/?is_favorite=false`),
           {method: 'PUT'}
           );
       }else{
         e.target.className = 'favRest';
+        fav.setAttribute('aria-label','This is one of my favorite restaurants');
         fetch(new Request(
           `http://localhost:1337/restaurants/${e.target.getAttribute('data-src')}/?is_favorite=true`),
           {method: 'PUT'}
           );
       }
+      
     }else{
       alert("Try again when You are online!");
     }
-  }); 
+  });
 
   fav.setAttribute('data-src', restaurant.id);
+  fav.click();
 
   li.append(fav);
 
