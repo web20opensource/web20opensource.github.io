@@ -678,6 +678,20 @@ nav h1 a {
   display: block;
 }
 
+.favRest{
+ background: url("/img/star.svg");
+ background-size: cover;
+ width: 25px;
+ height: 25px;
+}
+
+.notFavRest{
+ background: url("/img/no_star.svg");
+ background-size: cover; 
+ width: 25px;
+ height: 25px;
+}
+
 /* ====================== Restaurant Details ====================== */
 
 .inside #mainReviewHeader{
@@ -741,6 +755,7 @@ nav h1 a {
   font-size: 1em;
   margin: 10px 0px;
 }
+
 
 
 #restaurant-cuisine, .restaurant-review-header  {

@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
           });;
   }
 
+  DBHelper.network = true;
+
 });
 
 /**
@@ -256,6 +258,39 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
   address.innerHTML = restaurant.address;
   li.append(address);
 
+
+
+  const fav = document.createElement('span');
+  if (restaurant.is_favorite === 'true')
+    fav.className = "favRest";
+  else
+    fav.className = "notFavRest";
+
+  fav.addEventListener('click',(e)=>{
+    //TODO improve when offline ... Handle the server response and then update the UI. 
+    if (DBHelper.network){
+      if(e.target.className == 'favRest'){
+        e.target.className = 'notFavRest';
+        fetch(new Request(
+          `http://localhost:1337/restaurants/${e.target.getAttribute('data-src')}/?is_favorite=false`),
+          {method: 'PUT'}
+          );
+      }else{
+        e.target.className = 'favRest';
+        fetch(new Request(
+          `http://localhost:1337/restaurants/${e.target.getAttribute('data-src')}/?is_favorite=true`),
+          {method: 'PUT'}
+          );
+      }
+    }else{
+      alert("Try again when You are online!");
+    }
+  }); 
+
+  fav.setAttribute('data-src', restaurant.id);
+
+  li.append(fav);
+
   const more = document.createElement('a');
   more.innerHTML = restaurant.name + " details";
   more.href = DBHelper.urlForRestaurant(restaurant);
@@ -306,7 +341,7 @@ addMarkersToMap = (restaurants = self.restaurants) => {
 } */
 
 
-//sw.js needs this code.
+//TODO - implement a notice to let user install the app - sw.js needs this code.
 let btnAdd = self.document.getElementById('installAnUpdate');
 btnAdd.addEventListener('click', (e) => {
   // hide our user interface that shows our A2HS button

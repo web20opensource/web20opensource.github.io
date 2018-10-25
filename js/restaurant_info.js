@@ -138,7 +138,6 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 let commentCreated = false;
 const addRevBtn = document.getElementById('addNewReview');
 addRevBtn.addEventListener('click',(e)=>{
-  debugger;
   e.preventDefault();
   if (commentCreated){
     alert("You already created a comment. Thanks.")

@@ -25,7 +25,6 @@ class DBHelper {
         callback(response);
       }catch(e){
           //store it in DB and fetch when internet is back.
-          debugger;
           console.log(e);
           fillReviewsHTML();
       }
@@ -70,7 +69,6 @@ class DBHelper {
   }
 
   static async saveReviewInDB(review, removePending, callback){
-    debugger;
     //DBHelper.saveReview((review)=>{
        const myRequest = new Request('http://localhost:1337/reviews/', {
         method: 'POST',
@@ -91,7 +89,7 @@ class DBHelper {
           }).then(function(db){
               console.log('review response added successfully to IndexDB to cache it');
               alert("Thanks for Your review")
-              debugger;
+              
               if (removePending)
                 DBHelper.removeFromPending(JSON.parse(review).restaurant_id);
               else
@@ -99,10 +97,10 @@ class DBHelper {
           });
         }).catch(error => {
           //store it in DB and fetch when internet is back.
-          debugger;
+          
           console.log(error);
           dbPromise.then(function(db){
-            debugger;
+            
             var tx = db.transaction('reviewsPending', 'readwrite');
             var keyValStore = tx.objectStore('reviewsPending');
             //store the review and 
@@ -124,7 +122,7 @@ class DBHelper {
           var keyValStore = tx.objectStore('reviewsPending');
           return keyValStore.getAll();
         }).then(function(db){
-          debugger;
+          
           for(let rest of db) 
             DBHelper.saveReviewInDB(rest, true, callback);
           return;
@@ -137,7 +135,7 @@ class DBHelper {
           tx.objectStore('reviewsPending').delete(restId);
           return tx.complete;
         }).then(function(db){
-          debugger;
+          
           console.log("removed from pendings");
         });
     }
@@ -158,7 +156,7 @@ class DBHelper {
           var keyValStore = tx.objectStore('keyval');
           return keyValStore.get('hello');
         }).then(function(db){
-          debugger;
+          
           callback(null, restaurant);
           console.log('The value of hello is: ', val);
         });

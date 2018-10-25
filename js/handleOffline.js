@@ -1,5 +1,5 @@
  function updateOnlineStatus(event) {
-    debugger;
+    
     var connected = navigator.onLine ? "online" : "offline";
     const legend = document.getElementById("network-aware");
     if (connected == 'offline'){
@@ -14,7 +14,7 @@
       legend.setAttribute('aria-label',"currently connected to internet");5
       DBHelper.network = true;4
       alert("currently connected to internet");3
-      debugger;
+      
       DBHelper.pendingReview(addReviewToExistingList);2
     }
   }
