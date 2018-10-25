@@ -62,7 +62,6 @@ self.addEventListener("install", function(event) {
         "/restaurant.html?id=10",
         "/css/styles.css",
         "/css/mqueries.css",
-        "https://necolas.github.io/normalize.css/8.0.0/normalize.css",
         "/img/1.webp",
         "/img/2.webp",
         "/img/3.webp",
@@ -76,11 +75,18 @@ self.addEventListener("install", function(event) {
         "/js/dbhelper.js",
         "/js/main.js",
         "/sw.js",
+        "https://unpkg.com/leaflet@1.3.1/dist/leaflet.js",
+        "https://code.jquery.com/jquery-3.3.1.min.js",
         "/js/indexDBCache.js",
         "/js/idb.js",
         "/js/restaurant_info.js",
         "/js/handleOffline.js",
-        "/offline.html"
+        "/offline.html",
+        "/css/images/layers-2x.png",
+        "/css/images/layers.png",
+        "/css/images/marker-icon-2x.png",
+        "css/images/marker-icon.png",
+        "css/images/marker-shadow.png"
       ])
     })
   )

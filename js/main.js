@@ -32,12 +32,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
            .catch(function(error) {
             // registration failed
             console.log('Registration failed with ' + error);
-          });;
+          });
   }
 
   DBHelper.network = true;
 
 });
+
+window.addEventListener('load', (event) => {
+  let imgRest = document.querySelectorAll(".restaurant-img");
+  imgRest.forEach((img)=>{
+    img.src = img.src + 'p';
+  });
+});
+
 
 /**
  * Fetch all neighborhoods and set their HTML.
@@ -236,7 +244,7 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
   const FIimage = document.createElement('img');
   const image = document.createElement('img');
   image.className = 'restaurant-img b-lazy';
-  image.src = `/${DBHelper.imageUrlForRestaurant(restaurant)}.webp`;
+  image.src = `/${DBHelper.imageUrlForRestaurant(restaurant)}.web`;
   image.setAttribute("alt","A picture from the restaurant " + restaurant.name);
 
   figure.append(image);
