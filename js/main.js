@@ -270,10 +270,14 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
 
 
   const fav = document.createElement('span');
-  if (restaurant.is_favorite === 'true')
+  if (restaurant.is_favorite === 'true'){
     fav.className = "favRest";
-  else
+    fav.setAttribute('aria-label','This is one of my favorite restaurants');
+  }
+  else{
     fav.className = "notFavRest";
+    fav.setAttribute('aria-label','Not one of my favorites');
+  }
 
   fav.addEventListener('click',(e)=>{
     //TODO improve when offline ... Handle the server response and then update the UI. 
