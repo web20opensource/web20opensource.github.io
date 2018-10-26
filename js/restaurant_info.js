@@ -8,6 +8,7 @@ var newMap;
  */
 document.addEventListener('DOMContentLoaded', (event) => {  
   initMap();
+  DBHelper.network = true;
 });
 
 /**
@@ -66,6 +67,7 @@ fetchRestaurantFromURL = (callback) => {
  * Create restaurant HTML and add it to the webpage
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
+    
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
 
@@ -93,6 +95,9 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   }
   /* fill reviews*/
   DBHelper.fetchReviews(fillReviewsHTML, self.restaurant.id);
+
+  //append favorite feature
+  document.getElementById('maincontent').prepend(DBHelper.returnFavorite(restaurant));
 
 }
 

@@ -102,9 +102,9 @@ self.addEventListener('fetch', function(event) {
               //cache the new responses
               //To prevent errors and exceeding services worker Quota you need to check your responses if they are valid.
               if(!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') { 
-                return networkResponse ; 
+                cache.put(event.request, networkResponse.clone());
               }
-              cache.put(event.request, networkResponse.clone());
+
               return networkResponse;
             })
         })

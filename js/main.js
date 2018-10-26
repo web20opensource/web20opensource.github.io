@@ -270,7 +270,7 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
 
 
 
-  const fav = document.createElement('span');
+  /*const fav = document.createElement('span');
   if (restaurant.is_favorite === 'true'){
     fav.className = "favRest";
     fav.setAttribute('aria-label','This is one of my favorite restaurants');
@@ -303,9 +303,10 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
     }
   }); 
 
-  fav.setAttribute('data-src', restaurant.id);
+  fav.setAttribute('data-src', restaurant.id);*/
 
-  li.append(fav);
+  //append favorite feature
+  li.append(DBHelper.returnFavorite(restaurant));
 
   const more = document.createElement('a');
   more.innerHTML = restaurant.name + " details";

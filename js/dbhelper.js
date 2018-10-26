@@ -114,31 +114,31 @@ class DBHelper {
           return new Response(null,{ "status" : 200 , "statusText" : "OK" });
           //turn on a flag of pending to synchronize. 
         });
-    }
+  }
 
-    static pendingReview(callback){
-      dbPromise.then(function(db){
-          var tx = db.transaction('reviewsPending');
-          var keyValStore = tx.objectStore('reviewsPending');
-          return keyValStore.getAll();
-        }).then(function(db){
-          
-          for(let rest of db) 
-            DBHelper.saveReviewInDB(rest, true, callback);
-          return;
-        });
-    }
+  static pendingReview(callback){
+    dbPromise.then(function(db){
+        var tx = db.transaction('reviewsPending');
+        var keyValStore = tx.objectStore('reviewsPending');
+        return keyValStore.getAll();
+      }).then(function(db){
+        
+        for(let rest of db) 
+          DBHelper.saveReviewInDB(rest, true, callback);
+        return;
+      });
+  }
 
-    static removeFromPending(restId){
-        return dbPromise.then(db => {
-          const tx = db.transaction('reviewsPending', 'readwrite');
-          tx.objectStore('reviewsPending').delete(restId);
-          return tx.complete;
-        }).then(function(db){
-          
-          console.log("removed from pendings");
-        });
-    }
+  static removeFromPending(restId){
+      return dbPromise.then(db => {
+        const tx = db.transaction('reviewsPending', 'readwrite');
+        tx.objectStore('reviewsPending').delete(restId);
+        return tx.complete;
+      }).then(function(db){
+        
+        console.log("removed from pendings");
+      });
+  }
     
 
   /**
@@ -298,5 +298,46 @@ class DBHelper {
     return marker;
   } */
 
-}
+  static returnFavorite(restaurant){
+    const fav = document.createElement('span');
+    if (restaurant.is_favorite === 'true'){
+      fav.className = "favRest";
+      fav.setAttribute('aria-label','This is one of my favorite restaurants');
+    }
+    else{
+      fav.className = "notFavRest";
+      fav.setAttribute('aria-label','Not one of my favorites');
+    }
+
+    fav.addEventListener('click',(e)=>{
+      //TODO improve when offline ... Handle the server response and then update the UI. 
+      if (DBHelper.network){
+        if(e.target.className == 'favRest'){
+          e.target.className = 'notFavRest';
+          fav.setAttribute('aria-label','Not one of my favorites');
+          fetch(new Request(
+            `http://localhost:1337/restaurants/${e.target.getAttribute('data-src')}/?is_favorite=false`),
+            {method: 'PUT'}
+            );
+        }else{
+          e.target.className = 'favRest';
+          fav.setAttribute('aria-label','This is one of my favorite restaurants');
+          fetch(new Request(
+            `http://localhost:1337/restaurants/${e.target.getAttribute('data-src')}/?is_favorite=true`),
+            {method: 'PUT'}
+            );
+        }
+      }else{
+        alert("Try again when You are online!");
+      }
+    }); 
+
+    fav.setAttribute('data-src', restaurant.id);
+    return fav;
+  }
+
+
+
+
+}//class
 
