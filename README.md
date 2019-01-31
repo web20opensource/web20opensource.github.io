@@ -4,10 +4,11 @@
 * description. project phase 3 nano degree MWS
 * date. 10/26/2018
 * version. 1.3.0
+* Project needed to get the Mobile Web Specialist Nano Degree from Udacity. 
 
 ## Project Overview: Stage 3, based on _Three Stage Course Material Project - Restaurant Reviews_
 
-Main page to review the project for phase 2 is: https://web20opensource.github.io/
+Main page to review the project for phase 3 is: https://web20opensource.github.io/
 
 ### Install Server
 You will Need nodejs and npm 
