@@ -9,13 +9,13 @@ class DBHelper {
    */
   static get DATABASE_URL() {
     const port = 1337 // Change this to your server port
-    return `http://localhost:1337/restaurants`;
+    return `https://udacity-mws-server.herokuapp.com/restaurants`;
   }
 
   /*fetch reviews*/
   static async fetchReviews(callback, restId){
     if (restId){
-      const myRequest = new Request(`http://localhost:1337/reviews/?restaurant_id=${restId}`, {
+      const myRequest = new Request(`https://udacity-mws-server.herokuapp.com/reviews/?restaurant_id=${restId}`, {
         method: 'GET'
       });
       try{
@@ -37,7 +37,7 @@ class DBHelper {
    */
   static fetchRestaurants(callback) {
     $.ajax({
-      url: "http://localhost:1337/restaurants",
+      url: "https://udacity-mws-server.herokuapp.com/restaurants",
       beforeSend: function( xhr ) {
         xhr.overrideMimeType( "text/plain; charset=utf8" );
       }
@@ -70,7 +70,7 @@ class DBHelper {
 
   static async saveReviewInDB(review, removePending, callback){
     //DBHelper.saveReview((review)=>{
-       const myRequest = new Request('http://localhost:1337/reviews/', {
+       const myRequest = new Request('https://udacity-mws-server.herokuapp.com/reviews/', {
         method: 'POST',
         body:review
       });
@@ -316,14 +316,14 @@ class DBHelper {
           e.target.className = 'notFavRest';
           fav.setAttribute('aria-label','Not one of my favorites');
           fetch(new Request(
-            `http://localhost:1337/restaurants/${e.target.getAttribute('data-src')}/?is_favorite=false`),
+            `https://udacity-mws-server.herokuapp.com/restaurants/${e.target.getAttribute('data-src')}/?is_favorite=false`),
             {method: 'PUT'}
             );
         }else{
           e.target.className = 'favRest';
           fav.setAttribute('aria-label','This is one of my favorite restaurants');
           fetch(new Request(
-            `http://localhost:1337/restaurants/${e.target.getAttribute('data-src')}/?is_favorite=true`),
+            `https://udacity-mws-server.herokuapp.com/restaurants/${e.target.getAttribute('data-src')}/?is_favorite=true`),
             {method: 'PUT'}
             );
         }

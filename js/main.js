@@ -287,14 +287,14 @@ createRestaurantHTML = (restaurant, indexRestaurant) => {
         e.target.className = 'notFavRest';
         fav.setAttribute('aria-label','Not one of my favorites');
         fetch(new Request(
-          `http://localhost:1337/restaurants/${e.target.getAttribute('data-src')}/?is_favorite=false`),
+          `https://udacity-mws-server.herokuapp.com/restaurants/${e.target.getAttribute('data-src')}/?is_favorite=false`),
           {method: 'PUT'}
           );
       }else{
         e.target.className = 'favRest';
         fav.setAttribute('aria-label','This is one of my favorite restaurants');
         fetch(new Request(
-          `http://localhost:1337/restaurants/${e.target.getAttribute('data-src')}/?is_favorite=true`),
+          `https://udacity-mws-server.herokuapp.com/restaurants/${e.target.getAttribute('data-src')}/?is_favorite=true`),
           {method: 'PUT'}
           );
       }
