@@ -10,6 +10,10 @@
 
 Main page to review the project for phase 3 is: https://web20opensource.github.io/
 
+### Server at heroku
+The backend server has been deployed into Heroku. However if You can to try on your local please follow the next steps
+
+
 ### Install Server
 You will Need nodejs and npm 
 
@@ -17,6 +21,8 @@ Download the Node development server project
 https://github.com/udacity/mws-restaurant-stage-3
 Loo the README notes on how to launch the server
 
+### Replace all instances of heroku server to your localhost and port
+Look for https://udacity-mws-server.herokuapp.com and replace for http://localhost:1337
 
 ### Install FrontEnd project - Restaurant Reviews
 Download this project and extract it from 
